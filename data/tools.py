@@ -18,7 +18,7 @@ class Game(object):
         pass
     def event_loop(self):
         #TODO
-        pas
+        pass
 
 
 
