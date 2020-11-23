@@ -1,3 +1,6 @@
+class Screen(object):
+    def __init__(self):
+        pass
 def load_all_words(directory, extensions = []):
     words = []
     pass
