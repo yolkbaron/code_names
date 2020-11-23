@@ -1,3 +1,27 @@
+import os
+import pygame as pg
+from . import constants as c
+
+class Game(object):
+    """
+    Class for handling entire project. Contains game and event loops.
+    """
+    def __init__(self, caption):
+        self.caption = caption
+        self.screen = pg.display.get_surface()
+        self.fps = c.FPS
+        self.clock = pg.time.Clock()
+        self.done = False
+        self.current_time = 0.0
+    def update(self):
+        #TODO
+        pass
+    def event_loop(self):
+        #TODO
+        pas
+
+
+
 class Screen(object):
     def __init__(self):
         pass
