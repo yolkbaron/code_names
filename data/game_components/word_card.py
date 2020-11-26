@@ -1,5 +1,6 @@
 import pygame as pg
 from .. import constants as c
+from .. import  setup
 
 class Letter(pg.sprite.Sprite):
     """
@@ -22,6 +23,14 @@ class Word():
         self.word = str(word)
         self.create_letter_dict()
         self.create_digit_list()
+
+    def get_image(self, x, y, width, height):
+        """
+        Extracts requred image from sprite file
+        :return:
+        """
+        #TODO
+        pass
     def create_letter_dict(self):
         """
         Creates dictionary of all letters' images
@@ -56,6 +65,15 @@ class WordCard():
         self.x = x
         self.y = y
         self.word = word #Word class
+
+    def get_image(self, x, y, width, height):
+        """
+        Extracts requred image from sprite file
+        :return:
+        """
+        #TODO
+        pass
+
     def draw(self):
         """
         Draws a card and word on this card
