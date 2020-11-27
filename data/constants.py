@@ -42,7 +42,7 @@ TEAM2 = '2 team'
 MAIN_MENU = 'main menu'
 FIELD_OPERATIVE = 'field operative'
 SPYMASTER = 'spymaster'
-STARTIN_SCREEN = 'starting screen'
+STARTING_SCREEN = 'starting screen'
 
 #Game info dictionary keys
 TEAM1_SCORE = '1 team score'

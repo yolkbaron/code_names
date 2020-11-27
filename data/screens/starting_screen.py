@@ -3,9 +3,9 @@ from .. import setup, tools
 from .. import constants as c
 
 
-class MainMenu(tools.GameState):
+class StartingScreen(tools.GameState):
     """
-    Main menu screen class
+    Starting screen class
     """
 
     def __init__(self):

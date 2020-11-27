@@ -1,6 +1,7 @@
 import pygame as pg
 from .. import constants as c
-from .. import  setup
+from .. import setup
+
 
 class Letter(pg.sprite.Sprite):
     """
@@ -12,31 +13,34 @@ class Letter(pg.sprite.Sprite):
         self.image = image
         self.rect = image.get_rect()
 
+
 class Word():
     """
     A word to draw on card
     """
-    #TODO add sprite logic
+
+    # TODO add sprite logic
     def __init__(self, x, y, word):
         self.x = x
         self.y = y
         self.word = str(word)
         self.create_letter_dict()
-        self.create_digit_list()
+        self.create_letter_list()
 
     def get_image(self, x, y, width, height):
         """
         Extracts requred image from sprite file
         :return:
         """
-        #TODO
+        # TODO
         pass
+
     def create_letter_dict(self):
         """
         Creates dictionary of all letters' images
         :return:
         """
-        #TODO
+        # TODO
         pass
 
     def create_letter_list(self):
@@ -44,34 +48,38 @@ class Word():
         Creates list of letter images based on word received
         :return:
         """
-        #TODO
+        # TODO
         pass
+
     def update(self, word):
         """
         Updates word
         :param word:
         :return:
         """
-        #TODO
+        # TODO
         pass
+
     def draw(self):
         """
         Draws word.
         :return:
         """
+
+
 class WordCard():
-    #TODO add sprite logic
+    # TODO add sprite logic
     def __init__(self, x, y, word):
         self.x = x
         self.y = y
-        self.word = word #Word class
+        self.word = word  # Word class
 
     def get_image(self, x, y, width, height):
         """
         Extracts requred image from sprite file
         :return:
         """
-        #TODO
+        # TODO
         pass
 
     def draw(self):
@@ -79,5 +87,5 @@ class WordCard():
         Draws a card and word on this card
         :return:
         """
-        #TODO
+        # TODO
         pass
