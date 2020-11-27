@@ -16,6 +16,9 @@ class Game(object):
         self.done = False
         self.current_time = 0.0
         self.state = None  # GameState
+        self.screen_dict = {}
+        self.screen = None
+        self.screen_name = None
 
     def update(self):
         """
@@ -39,6 +42,15 @@ class Game(object):
         :return: None
         """
         # TODO
+        pass
+    def set_screens(self, screen_dict, current_screen_name):
+        """
+        Sets self.screen_dict, self.screen_name, self.screen with data given
+        :param screen_dict: dictionary of all screens
+        :param current_state: starting state
+        :return: None
+        """
+        #TODO
         pass
 
 
