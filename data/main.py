@@ -1,4 +1,4 @@
-from . import setup, tools
+from . import tools
 from .screens import field_operative_screen, main_menu, spymaster_screen, starting_screen
 from . import constants as c
 

@@ -1,2 +1,5 @@
-# TODO setups allowed events,  screen. Sets sounds and sprites as lists.
+"""
+Initializes the game screen and creates dictionaries of sounds and sprites, list of word
+"""
+# TODO
 pass

@@ -7,7 +7,7 @@ class Game(object):
     """
     Class for handling entire project. Contains game, event and main loops.
     """
-
+    #TODO
     def __init__(self, caption):
         self.caption = caption
         self.screen = pg.display.get_surface()
@@ -58,7 +58,7 @@ class GameState(object):
     """
     Contains current previous and next states of Game
     """
-
+    #TODO
     def __init__(self):
         self.done = False
 
