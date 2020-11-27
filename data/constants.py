@@ -29,3 +29,24 @@ COMBLUE      = (233, 232, 255)
 GOLD         = (255, 215,   0)
 
 BGCOLOR = WHITE
+
+#WordCard states
+COVERED = 'covered'
+UNCOVERED = 'uncovered'
+
+#Move states
+TEAM1 = '1 team'
+TEAM2 = '2 team'
+
+#Screen states
+MAIN_MENU = 'main menu'
+FIELD_OPERATIVE = 'field operative'
+SPYMASTER = 'spymaster'
+STARTIN_SCREEN = 'starting screen'
+
+#Game info dictionary keys
+TEAM1_SCORE = '1 team score'
+TEAM2_SCORE = '2 team score'
+
+#Sound states
+#TODO
