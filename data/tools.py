@@ -80,7 +80,7 @@ def load_all_words(directory, categories, extensions=()):
     order = random.sample(range(1, 1063), 25)
     words = []
     for i in order:
-        words.apeend(f.line(i))
+        words.append(f.line(i))
     return words
 
 
