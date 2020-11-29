@@ -1,6 +1,7 @@
 import os
 import pygame as pg
 from . import constants as c
+import random
 
 
 class Game(object):
@@ -72,11 +73,16 @@ def load_all_words(directory, categories, extensions=()):
     :param directory: Directory with words
     :param categories: Allowed categories for words
     :param extensions: Allowed extensions os files with words
-    :return: Lisr of words
+    :return: List of words
     """
     # TODO
+    file = open('words_list.txt', 'r')
+    order = random.sample(range(1, 1063), 25)
     words = []
-    pass
+    for i in order:
+        words.apeend(f.line(i))
+    return words
+
 
 
 def load_all_sounds(directory, extensions=()):
