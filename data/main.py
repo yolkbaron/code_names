@@ -12,3 +12,4 @@ def main():
                    }
     game.set_screens(screen_dict, c.STARTING_SCREEN)
     game.main()
+    print loa
