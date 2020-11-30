@@ -100,8 +100,7 @@ def load_all_sounds(directory, extensions=()):
     win_sounds = []
     for sounds in ['win1.wav', 'win2.wav']:
         win_sounds.append(pygame.mixer.Sound(path.join(snd_dir, sounds)))
-    # sounds = {}
-    # pass
+
 
 
 def load_all_music(directory, extensions=()):
@@ -112,8 +111,17 @@ def load_all_music(directory, extensions=()):
     :return: List of music
     """
     # TODO
-    music = {}
-    pass
+    msc_dir = path.join(path.dirname(__file__), 'music')
+    music_first = pygame.mixer.music.load(path.join(msc_dir, 'background music 1.ogg'))
+    # music_second = pygame.mixer.music.load(path.join(msc_dir, 'background music 2.ogg'))
+    pygame.mixer.music.set_volume(0.4)
+
+    score = 0
+    # the number of repetitions is infinite
+    pygame.mixer.music.play(loops=-1)
+    # Game loop
+    running = True
+
 
 
 def load_all_sprites(directory, extensions=()):
