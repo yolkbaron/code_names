@@ -2,7 +2,6 @@ import os
 import pygame as pg
 from . import constants as c
 import random
-from os import path
 
 
 class Game(object):
@@ -95,7 +94,7 @@ def load_all_sounds(directory, extensions=()):
     :return: List of sounds
     """
     # TODO
-    snd_dir = path.join(path.dirname(__file__), 'sounds')
+    snd_dir = os.path.join(path.dirname(__file__), 'sounds')
     lose_sound = pygame.mixer.Sound(path.join(snd_dir, 'lose.wav'))
     win_sounds = []
     for sounds in ['win1.wav', 'win2.wav']:
@@ -111,7 +110,7 @@ def load_all_music(directory, extensions=()):
     :return: List of music
     """
     # TODO
-    msc_dir = path.join(path.dirname(__file__), 'music')
+    msc_dir = os.path.join(path.dirname(__file__), 'music')
     music_first = pygame.mixer.music.load(path.join(msc_dir, 'background music 1.ogg'))
     # music_second = pygame.mixer.music.load(path.join(msc_dir, 'background music 2.ogg'))
     pygame.mixer.music.set_volume(0.4)
