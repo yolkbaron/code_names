@@ -10,4 +10,4 @@ def main():
                    c.SPYMASTER: spymaster_screen.SpyMaster,
                    c.STARTING_SCREEN: starting_screen.StartingScreen}
     game.set_screens(screen_dict, c.STARTING_SCREEN)
-    game.main()
+    game.main_loop()
