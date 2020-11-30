@@ -67,7 +67,7 @@ class GameState(object):
         self.done = False
 
 
-def load_all_words(directory, categories, extensions=()):
+def load_all_words(directory):
     """
     Loads all words of given categories from given directory.
     :param directory: Directory with words
@@ -75,14 +75,15 @@ def load_all_words(directory, categories, extensions=()):
     :param extensions: Allowed extensions os files with words
     :return: List of words
     """
-    # TODO
-    file = open('words_list.txt', 'r')
-    order = random.sample(range(1, 1063), 25)
+    i = 1
+    f = open(directory, 'r', encoding = "utf-8")
+    order = random.sample(range(1, 1061), 25)
     words = []
-    for i in order:
-        words.append(file.line(i))
+    for line in f:
+        if order.count(i) > 0:
+            words.insert(1, line.rstrip())
+        i += 1
     return words
-
 
 
 def load_all_sounds(directory, extensions=()):
