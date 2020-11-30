@@ -93,7 +93,7 @@ def load_all_sounds(directory, extensions=()):
     :return: List of sounds
     """
     # TODO
-    sounds = []
+    sounds = {}
     pass
 
 
@@ -105,7 +105,7 @@ def load_all_music(directory, extensions=()):
     :return: List of music
     """
     # TODO
-    music = []
+    music = {}
     pass
 
 
@@ -117,5 +117,5 @@ def load_all_sprites(directory, extensions=()):
     :return: List of sprites
     """
     # TODO
-    sprites = []
+    sprites = {}
     pass
