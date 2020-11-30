@@ -40,7 +40,7 @@ class Game(object):
 
     def main_loop(self):
         """
-        Main loop
+        Main loop.
         :return: None
         """
         # TODO
@@ -48,9 +48,9 @@ class Game(object):
 
     def set_screens(self, screen_dict, current_screen_name):
         """
-        Sets self.screen_dict, self.screen_name, self.screen with data given
+        Sets self.screen_dict, self.screen_name, self.screen with data given.
         :param screen_dict: dictionary of all screens
-        :param current_state: starting state
+        :param current_screen_name: starting state
         :return: None
         """
         # TODO
@@ -59,7 +59,7 @@ class Game(object):
 
 class GameState(object):
     """
-    Contains current previous and next states of Game
+    Contains current previous and next states of Game.
     """
 
     # TODO
@@ -84,10 +84,9 @@ def load_all_words(directory, categories, extensions=()):
     return words
 
 
-
 def load_all_sounds(directory, extensions=()):
     """
-    Loads all sounds from given directory
+    Loads all sounds from given directory.
     :param directory: Directory with sounds
     :param extensions: Allowed extensions for sound files
     :return: List of sounds
@@ -99,7 +98,7 @@ def load_all_sounds(directory, extensions=()):
 
 def load_all_music(directory, extensions=()):
     """
-    Loads all music from given directory
+    Loads all music from given directory.
     :param directory: Directory with music
     :param extensions: Allowed extensions for music files
     :return: List of music
@@ -111,7 +110,7 @@ def load_all_music(directory, extensions=()):
 
 def load_all_sprites(directory, extensions=()):
     """
-    Loads all sprites from given directory
+    Loads all sprites from given directory.
     :param directory: Directory with sprites
     :param extensions: Allowed extensions for sprite files
     :return: List of sprites
