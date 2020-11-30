@@ -41,7 +41,7 @@ class Game(object):
 
     def main_loop(self):
         """
-        Main loop
+        Main loop.
         :return: None
         """
         # TODO
@@ -49,9 +49,9 @@ class Game(object):
 
     def set_screens(self, screen_dict, current_screen_name):
         """
-        Sets self.screen_dict, self.screen_name, self.screen with data given
+        Sets self.screen_dict, self.screen_name, self.screen with data given.
         :param screen_dict: dictionary of all screens
-        :param current_state: starting state
+        :param current_screen_name: starting state
         :return: None
         """
         # TODO
@@ -60,7 +60,7 @@ class Game(object):
 
 class GameState(object):
     """
-    Contains current previous and next states of Game
+    Contains current previous and next states of Game.
     """
 
     # TODO
@@ -68,7 +68,7 @@ class GameState(object):
         self.done = False
 
 
-def load_all_words(directory, categories, extensions=()):
+def load_all_words(directory):
     """
     Loads all words of given categories from given directory.
     :param directory: Directory with words
@@ -76,19 +76,20 @@ def load_all_words(directory, categories, extensions=()):
     :param extensions: Allowed extensions os files with words
     :return: List of words
     """
-    # TODO
-    file = open('words_list.txt', 'r')
-    order = random.sample(range(1, 1063), 25)
+    i = 1
+    f = open(directory, 'r', encoding = "utf-8")
+    order = random.sample(range(1, 1061), 25)
     words = []
-    for i in order:
-        words.append(file.line(i))
+    for line in f:
+        if order.count(i) > 0:
+            words.insert(1, line.rstrip())
+        i += 1
     return words
-
 
 
 def load_all_sounds(directory, extensions=()):
     """
-    Loads all sounds from given directory
+    Loads all sounds from given directory.
     :param directory: Directory with sounds
     :param extensions: Allowed extensions for sound files
     :return: List of sounds
@@ -105,7 +106,7 @@ def load_all_sounds(directory, extensions=()):
 
 def load_all_music(directory, extensions=()):
     """
-    Loads all music from given directory
+    Loads all music from given directory.
     :param directory: Directory with music
     :param extensions: Allowed extensions for music files
     :return: List of music
@@ -117,7 +118,7 @@ def load_all_music(directory, extensions=()):
 
 def load_all_sprites(directory, extensions=()):
     """
-    Loads all sprites from given directory
+    Loads all sprites from given directory.
     :param directory: Directory with sprites
     :param extensions: Allowed extensions for sprite files
     :return: List of sprites
