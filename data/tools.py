@@ -91,14 +91,15 @@ def load_all_sounds(directory, extensions=()):
     Loads all sounds from given directory.
     :param directory: Directory with sounds
     :param extensions: Allowed extensions for sound files
-    :return: List of sounds
+    :return: Sounds dictionary
     """
-    # TODO
-    snd_dir = os.path.join(path.dirname(__file__), 'sounds')
-    lose_sound = pygame.mixer.Sound(path.join(snd_dir, 'lose.wav'))
-    win_sounds = []
-    for sounds in ['win1.wav', 'win2.wav']:
-        win_sounds.append(pygame.mixer.Sound(path.join(snd_dir, sounds)))
+    sounds = {}
+    for sound_file in os.listdir(directory):
+        name, extension = os.path.splitext(sound_file)
+        if extension.lower() in extensions:
+            sounds[name] = pg.mixer.Sound(os.path.join(directory, sound_file))
+    return sounds
+
 
 
 
@@ -107,19 +108,14 @@ def load_all_music(directory, extensions=()):
     Loads all music from given directory.
     :param directory: Directory with music
     :param extensions: Allowed extensions for music files
-    :return: List of music
+    :return: Music dictionary
     """
-    # TODO
-    msc_dir = os.path.join(path.dirname(__file__), 'music')
-    music_first = pygame.mixer.music.load(path.join(msc_dir, 'background music 1.ogg'))
-    # music_second = pygame.mixer.music.load(path.join(msc_dir, 'background music 2.ogg'))
-    pygame.mixer.music.set_volume(0.4)
-
-    score = 0
-    # the number of repetitions is infinite
-    pygame.mixer.music.play(loops=-1)
-    # Game loop
-    running = True
+    music = {}
+    for music_file in os.listdir(directory):
+        name, extension = os.path.splitext(music_file)
+        if extension.lower() in extensions:
+            music[name] = os.path.join(directory, music_file)
+    return music
 
 
 
@@ -128,8 +124,11 @@ def load_all_sprites(directory, extensions=()):
     Loads all sprites from given directory.
     :param directory: Directory with sprites
     :param extensions: Allowed extensions for sprite files
-    :return: List of sprites
+    :return: Sprite dictionary
     """
-    # TODO
     sprites = {}
-    pass
+    for sprite_file in os.listdir(directory):
+        name, extension = os.path.splitext(sprite_file)
+        if name.lower() in extensions:
+            sprites[name] = pg.image.load(os.path.join(directory, sprite_file))
+    return sprites
