@@ -66,18 +66,17 @@ class GameState(object):
         self.done = False
 
 
-def load_all_words(directory, extensions=('.txt')):
+def load_all_words(directory, extensions='.txt'):
     """
     Loads all words of given categories from given directory.
     :param directory: Directory with words
     :param extensions: Allowed extensions os files with words
     :return: List of words
     """
-    i = 1
     words = {}
     for word_file in os.listdir(directory):
         path = os.path.join(directory, word_file)
-        with open(path, 'r', encoding="utf-8") as file:
+        with open(path, encoding="utf-8") as file:
             category_key, extension = os.path.splitext(word_file)
             category = []
             if extension in extensions:

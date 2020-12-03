@@ -65,6 +65,7 @@ class Word():
         Draws word.
         :return:
         """
+        # TODO
 
 
 class WordCard():

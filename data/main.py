@@ -5,11 +5,10 @@ from . import constants as c
 
 def main():
     game = tools.Game(c.BASIC_CAPTION)
-    screen_dict = {c.FIELD_OPERATIVE: field_operative_screen.FieledOperative,
+    screen_dict = {c.FIELD_OPERATIVE: field_operative_screen.FieldOperative,
                    c.MAIN_MENU: main_menu.MainMenu,
                    c.SPYMASTER: spymaster_screen.SpyMaster,
                    c.STARTING_SCREEN: starting_screen.StartingScreen
                    }
     game.set_screens(screen_dict, c.STARTING_SCREEN)
     game.main_loop()
-
