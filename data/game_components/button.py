@@ -1,9 +1,11 @@
 import pygame as pg
 
-class Button():
+
+class Button(object):
     """
     Class for handling mouse clicking event.
     """
+
     def add_button(self, screen, x, y, width, height):
         """
         Adds button to given screen.
@@ -14,18 +16,20 @@ class Button():
         :param height: Height of button
         :return: None
         """
-        #TODO
+        # TODO
+
     def remove_button(self, screen):
         """
         Removes button from screen
         :param screen: Screen
         :return: None
         """
-        #TODO
+        # TODO
+
     def is_pressed(self, mouse_click_event):
         """
         Checks if pressed button.
         :param mouse_click_event: Event MOUSEBUTTONDOWN
         :return: True if cursor was above button when clicked, False if not
         """
-        #TODO
+        # TODO

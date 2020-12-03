@@ -21,13 +21,26 @@ class Game(object):
         self.screen = None
         self.screen_name = None
 
+    def switch_state(self):
+        """
+        State switching logic
+        :return: None
+        """
+        self.screen_name = self.state.next
+        self.screen = self.screen_dict[self.screen_name]
+        self.state.start(self.current_time, self.game_info)
+
     def update(self):
         """
         Updates time. Then checks if state.quit, if not changes current state.
         :return: None
         """
-        # TODO
-        pass
+        self.current_time = pg.time.get_ticks()
+        if self.state.quit:
+            self.done = True
+        elif self.state.done:
+            self.switch_state()
+        self.state.update()
 
     def event_loop(self):
         """
@@ -52,8 +65,9 @@ class Game(object):
         :param current_screen_name: starting state
         :return: None
         """
-        # TODO
-        pass
+        self.screen_dict = screen_dict
+        self.screen_name = current_screen_name
+        self.state = self.screen_dict[self.screen_name]
 
 
 class GameState(object):
@@ -63,7 +77,28 @@ class GameState(object):
 
     # TODO
     def __init__(self):
+        self.start_time = 0.0
         self.done = False
+        self.quit = False
+        self.next = None
+        self.info = {}
+
+    def update(self):
+        """
+        Depends from the specific screen
+        :return: None
+        """
+        pass
+
+    def start(self, current_time, info):
+        """
+        Depends from the specific screen
+        :param current_time: Absolute time of the game
+        :param info: GameInfo class object
+        :return: None
+        """
+        self.info = info
+        self.start_time = current_time
 
 
 def load_all_words(directory, extensions='.txt'):
