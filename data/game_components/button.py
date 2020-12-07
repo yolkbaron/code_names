@@ -5,15 +5,9 @@ class Button(object):
     """
     Class for handling mouse clicking event.
     """
-    def __init__(self, x, y, width, height, text, pressed):
-        self.x = x
-        self.y = y
-        self.height = height
-        self.width = width
-        self.text = text
-        self.pressed = False
+    def __init__(self):
 
-def create_button(self, x, y, width, height):
+def create_button(self, x, y, width, height, text):
         """
         Adds button to given screen.
         :param state: GameState
