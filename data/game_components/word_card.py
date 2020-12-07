@@ -1,6 +1,7 @@
 import pygame as pg
 from .. import constants as c
 from .. import setup
+from ..game_components import button
 
 
 class Letter(pg.sprite.Sprite):
@@ -68,16 +69,15 @@ class Word():
         # TODO
 
 
-class WordCard():
+class WordCard(button.Button):
     # TODO add sprite logic
-    def __init__(self, x, y, word):
-        self.x = x
-        self.y = y
+    def __init__(self, word):
+        button.Button.__init__(self)
         self.word = word  # Word class
 
     def get_image(self, x, y, width, height):
         """
-        Extracts requred image from sprite file
+        Extracts required image from sprite file
         :return:
         """
         # TODO
