@@ -7,8 +7,6 @@ class Game(object):
     """
     Class for handling entire project. Contains game, event and main loops.
     """
-
-    # TODO
     def __init__(self, caption):
         self.caption = caption
         self.screen = pg.display.get_surface()
@@ -18,8 +16,9 @@ class Game(object):
         self.current_time = 0.0
         self.state = None  # GameState
         self.screen_dict = {}
-        self.screen = None
         self.screen_name = None
+        self.keys = pg.key.get_pressed()  # List of all keys pressed
+        self.mouse_pressed = pg.mouse.get_pressed(1)
 
     def switch_state(self):
         """
@@ -30,7 +29,7 @@ class Game(object):
         self.screen = self.screen_dict[self.screen_name]
         self.state.start(self.current_time, self.game_info)
 
-    def update(self):
+    def update(self, current_time, info):
         """
         Updates time. Then checks if state.quit, if not changes current state.
         :return: None
@@ -47,16 +46,26 @@ class Game(object):
         Handles event.
         :return: None
         """
-        # TODO
-        pass
+        for event in pg.event.get():
+            if event == pg.QUIT:
+                self.done = True
+            elif event.type == pg.MOUSEBUTTONDOWN:
+                self.mouse_pressed = True
+            elif event.type == pg.MOUSEBUTTONUP:
+                self.mouse_pressed = False
+            elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
+                self.keys = pg.key.get_pressed()
 
     def main_loop(self):
         """
         Main loop.
         :return: None
         """
-        # TODO
-        pass
+        while not self.done:
+            self.event_loop()
+            self.update()
+            pg.display.update()
+            self.clock.tick(self.fps)
 
     def set_screens(self, screen_dict, current_screen_name):
         """
@@ -74,8 +83,6 @@ class GameState(object):
     """
     Contains current previous and next states of Game.
     """
-
-    # TODO
     def __init__(self):
         self.start_time = 0.0
         self.done = False
@@ -83,7 +90,7 @@ class GameState(object):
         self.next = None
         self.info = {}
 
-    def update(self):
+    def update(self, surface, keys):
         """
         Depends from the specific screen
         :return: None
