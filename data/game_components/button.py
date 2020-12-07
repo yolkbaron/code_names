@@ -14,7 +14,7 @@ class Button(object):
         self.pressed = False
         self.image_button = None
 
-    def create_button(self, x, y, width, height, text, image_button):
+    def create_button(self, x, y, width, height, text, image_button, settings, color):
         """
         Adds button to given screen.
         :param state: GameState
@@ -28,16 +28,16 @@ class Button(object):
         """
         self.x = x
         self.y = y
-        self.height = height
         self.width = width
+        self.height = height
         self.text = text
-        self.image_button = pygame.Rect(self.x, self.y, self.height, self.width)
+        self.image_button = pg.Rect(self.x, self.y, self.width, self.height)
         text_button = settings.font_text.render(self.text, True, color)
         text_rect = text_button.get_rect()
         text_rect.center = self.rect_image_button.center
         self.image_button.blit(text_button, text_rect)
 
-        # TODO
+
 
     def remove_button(self, screen):
         """
@@ -47,11 +47,15 @@ class Button(object):
         """
         # TODO
 
-    def is_pressed(self, mouse_click_event):
+    def is_pressed(self, pos):
         """
         Checks if pressed button.
-        :param mouse_click_event: Event MOUSEBUTTONDOWN
+        :param pos
         :return: True if cursor was above button when clicked, False if not
         """
-        # TODO
+        x, y = pos
+        if self.x < x < self.x + self.width and self.y < y < self.y + self.height:
+            return True
+
+
 
