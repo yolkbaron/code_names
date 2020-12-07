@@ -7,7 +7,6 @@ class SpyMaster(tools.GameState):
     """
     Spy master screen class
     """
-
     def __init__(self):
-        # TODO
-        pass
+        tools.GameState.__init__(self)
+        self.quit = False

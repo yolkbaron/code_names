@@ -7,7 +7,5 @@ class StartingScreen(tools.GameState):
     """
     Starting screen class
     """
-
     def __init__(self):
-        # TODO
-        pass
+        tools.GameState.__init__(self)

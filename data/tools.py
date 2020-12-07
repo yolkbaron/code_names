@@ -18,7 +18,7 @@ class Game(object):
         self.screen_dict = {}
         self.screen_name = None
         self.keys = pg.key.get_pressed()  # List of all keys pressed
-        self.mouse_pressed = pg.mouse.get_pressed(1)
+        self.mouse_pressed = pg.mouse.get_pressed(3)[1]
 
     def switch_state(self):
         """
@@ -29,7 +29,7 @@ class Game(object):
         self.screen = self.screen_dict[self.screen_name]
         self.state.start(self.current_time, self.game_info)
 
-    def update(self, current_time, info):
+    def update(self):
         """
         Updates time. Then checks if state.quit, if not changes current state.
         :return: None
@@ -39,7 +39,7 @@ class Game(object):
             self.done = True
         elif self.state.done:
             self.switch_state()
-        self.state.update()
+        self.state.update(self.screen, self.keys, self.current_time)
 
     def event_loop(self):
         """
@@ -85,12 +85,13 @@ class GameState(object):
     """
     def __init__(self):
         self.start_time = 0.0
+        self.current_time = 0.0
         self.done = False
         self.quit = False
         self.next = None
         self.info = {}
 
-    def update(self, surface, keys):
+    def update(self, surface, keys, current_time):
         """
         Depends from the specific screen
         :return: None

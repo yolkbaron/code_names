@@ -7,7 +7,6 @@ class MainMenu(tools.GameState):
     """
     Main menu screen class
     """
-
     def __init__(self):
-        # TODO
-        pass
+        tools.GameState.__init__(self)
+        self.quit = False
