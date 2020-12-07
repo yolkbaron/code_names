@@ -5,6 +5,7 @@ class Button(object):
     """
     Class for handling mouse clicking event.
     """
+
     def __init__(self):
         self.x = None
         self.y = None
@@ -17,7 +18,6 @@ class Button(object):
     def create_button(self, x, y, width, height, text, image_button, settings, color):
         """
         Adds button to given screen.
-        :param state: GameState
         :param x: top-left x position of button
         :param y: top-left y position of button
         :param width: Width of button
@@ -32,12 +32,10 @@ class Button(object):
         self.height = height
         self.text = text
         self.image_button = pg.Rect(self.x, self.y, self.width, self.height)
-        text_button = settings.font_text.render(self.text, True, color)
+        text_button = settings.font_text.render(self.text, True, color)  # FIXME what is settings?
         text_rect = text_button.get_rect()
-        text_rect.center = self.rect_image_button.center
-        self.image_button.blit(text_button, text_rect)
-
-
+        text_rect.center = self.rect_image_button.center  # FIXME no such attribute in class Button!
+        self.image_button.blit(text_button, text_rect)  # FIXME
 
     def remove_button(self, screen):
         """
@@ -56,6 +54,3 @@ class Button(object):
         x, y = pos
         if self.x < x < self.x + self.width and self.y < y < self.y + self.height:
             return True
-
-
-

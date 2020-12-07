@@ -6,13 +6,16 @@ from ..game_components import button
 
 class Letter(pg.sprite.Sprite):
     """
-    Single letter for words"
+    Single letter for words
     """
 
     def __init__(self, image):
         super(Letter, self).__init__()
         self.image = image
         self.rect = image.get_rect()
+
+    def draw(self, x, y):
+        pass
 
 
 class Word():
