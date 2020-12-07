@@ -47,7 +47,7 @@ class Game(object):
         :return: None
         """
         for event in pg.event.get():
-            if event == pg.QUIT:
+            if event.type == pg.QUIT:
                 self.done = True
             elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.MOUSEBUTTONUP:
                 self.mouse = pg.key.get_pressed()
