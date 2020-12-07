@@ -18,7 +18,7 @@ class Game(object):
         self.screen_dict = {}
         self.screen_name = None
         self.keys = pg.key.get_pressed()  # List of all keys pressed
-        self.mouse_pressed = pg.mouse.get_pressed(3)[1]
+        self.mouse = pg.mouse.get_pressed(3)
 
     def switch_state(self):
         """
@@ -49,10 +49,8 @@ class Game(object):
         for event in pg.event.get():
             if event == pg.QUIT:
                 self.done = True
-            elif event.type == pg.MOUSEBUTTONDOWN:
-                self.mouse_pressed = True
-            elif event.type == pg.MOUSEBUTTONUP:
-                self.mouse_pressed = False
+            elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.MOUSEBUTTONUP:
+                self.mouse = pg.key.get_pressed()
             elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
                 self.keys = pg.key.get_pressed()
 
@@ -81,7 +79,7 @@ class Game(object):
 
 class GameState(object):
     """
-    Contains current previous and next states of Game.
+    Contains current and next states of Game.
     """
     def __init__(self):
         self.start_time = 0.0

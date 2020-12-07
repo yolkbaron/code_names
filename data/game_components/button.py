@@ -6,10 +6,10 @@ class Button(object):
     Class for handling mouse clicking event.
     """
 
-    def add_button(self, screen, x, y, width, height):
+    def add_button(self, state, x, y, width, height):
         """
         Adds button to given screen.
-        :param screen: Screen
+        :param state: GameState
         :param x: top-left x position of button
         :param y: top-left y position of button
         :param width: Width of button
