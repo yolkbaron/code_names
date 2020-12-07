@@ -5,8 +5,15 @@ class Button(object):
     """
     Class for handling mouse clicking event.
     """
+    def __init__(self, x, y, width, height, text, pressed):
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
+        self.text = text
+        self.pressed = False
 
-    def create_button(self, x, y, width, height):
+def create_button(self, x, y, width, height):
         """
         Adds button to given screen.
         :param state: GameState
@@ -16,6 +23,12 @@ class Button(object):
         :param height: Height of button
         :return: Button object
         """
+        self.image_button = pygame.Rect(self.x, self.y, self.height, self.width)
+        text_button = settings.font_text.render(self.text, True, color)
+        text_rect = text_button.get_rect()
+        text_rect.center = self.rect_image_button.center
+        self.image_button.blit(text_button, text_rect)
+
         # TODO
 
     def remove_button(self, screen):
@@ -33,3 +46,8 @@ class Button(object):
         :return: True if cursor was above button when clicked, False if not
         """
         # TODO
+        for ev in pygame.event.get():
+            if ev.type == pygame.QUIT:
+                finished = True
+            elif ev.type == pygame.MOUSEBUTTONDOWN:
+                return True
