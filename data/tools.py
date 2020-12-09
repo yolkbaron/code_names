@@ -86,8 +86,8 @@ class GameState(object):
         self.current_time = 0.0
         self.done = False
         self.quit = False
-        self.next = None
-        self.info = {}
+        self.next_screen = None
+        self.game_info = {}
 
     def update(self, surface, keys, current_time):
         """
@@ -96,15 +96,22 @@ class GameState(object):
         """
         pass
 
-    def start(self, current_time, info):
+    def start(self, current_time, game_info):
         """
         Depends from the specific screen
         :param current_time: Absolute time of the game
         :param info: GameInfo class object
         :return: None
         """
-        self.info = info
+        self.game_info = game_info
         self.start_time = current_time
+    def get_next_screen(self):
+        """
+        Returns next screen according to the name of current screen
+        :return: Next screen from constants
+        """
+        # TODO
+        return None
 
 
 def load_all_words(directory, extensions='.txt'):

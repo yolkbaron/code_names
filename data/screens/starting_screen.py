@@ -21,3 +21,7 @@ class StartingScreen(tools.GameState):
         self.screen.blit(text4, (130, 500))  # FIXME
         self.screen.blit(text5, (260, 550))  # FIXME
 
+    def start(self, current_time, game_info):
+        self.start_time = current_time
+        self.game_info = game_info
+        self.next_screen = self.get_next_screen()
