@@ -1,6 +1,6 @@
 import os
 import pygame as pg
-from . import constants as c
+from . import constants
 
 
 class Game(object):
@@ -10,7 +10,7 @@ class Game(object):
     def __init__(self, caption):
         self.caption = caption
         self.screen = pg.display.get_surface()
-        self.fps = c.FPS
+        self.fps = constants.FPS
         self.clock = pg.time.Clock()
         self.done = False
         self.current_time = 0.0

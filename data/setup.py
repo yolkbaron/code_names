@@ -5,12 +5,12 @@ Initializes the game screen and creates dictionaries of sounds, sprites and musi
 import os
 import pygame as pg
 from . import tools
-from . import constants as c
+from . import constants
 
 pg.init()
-pg.event.set_allowed(c.ALLOWED_EVENTS)
-pg.display.set_caption(c.BASIC_CAPTION)
-SCREEN = pg.display.set_mode(c.SCREEN_SIZE)
+pg.event.set_allowed(constants.ALLOWED_EVENTS)
+pg.display.set_caption(constants.BASIC_CAPTION)
+SCREEN = pg.display.set_mode(constants.SCREEN_SIZE)
 SCREEN_RECT = SCREEN.get_rect()
 
 SPRITES = tools.load_all_sprites(os.path.join("resources", "sprites"))
