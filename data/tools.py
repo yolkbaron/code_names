@@ -40,7 +40,7 @@ class Game(object):
             self.done = True
         elif self.state.done:
             self.switch_state()
-        self.state.update(self.display, self.keys, self.current_time)
+        self.state.update(self.display, self.keys, self.mouse, self.current_time)
 
     def event_loop(self):
         """
@@ -51,9 +51,18 @@ class Game(object):
             if event.type == pg.QUIT:
                 self.done = True
             elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.MOUSEBUTTONUP:
-                self.mouse = pg.key.get_pressed()
+                self.mouse = pg.mouse.get_pressed()
+                for key in self.state.buttons.keys():
+                    if self.state.buttons[key].check_crossing(self.state.cursor_pos):
+                        self.state.buttons[key].pressed = True
             elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
                 self.keys = pg.key.get_pressed()
+
+        for key in self.state.buttons.keys():
+            if self.state.buttons[key].check_crossing(self.state.cursor_pos):
+                self.state.buttons[key].active = True
+            else:
+                self.state.buttons[key].active = False
 
     def main_loop(self):
         """
@@ -84,13 +93,16 @@ class GameState(object):
     """
 
     def __init__(self):
+        self.multiplier = constants.MULTIPLIER
         self.start_time = 0.0
         self.current_time = 0.0
         self.done = False
         self.quit = False
         self.game_info = {}
+        self.buttons = {}
+        self.cursor_pos = pg.mouse.get_pos()
 
-    def update(self, surface, keys, current_time):
+    def update(self, surface, keys, mouse, current_time):
         """
         Depends from the specific screen
         :return: None
@@ -166,7 +178,7 @@ def load_all_music(directory, extensions=()):
     return music
 
 
-def load_all_sprites(directory, extensions=".jpg"):
+def load_all_sprites(directory, extensions=(".jpg", ".png")):
     """
     Loads all sprites from given directory.
     :param directory: Directory with sprites
@@ -179,3 +191,19 @@ def load_all_sprites(directory, extensions=".jpg"):
         if extension.lower() in extensions:
             sprites[name] = pg.image.load(os.path.join(directory, sprite_file))
     return sprites
+
+
+def load_all_fonts(directory, extensions=(".ttf")):
+    """
+    Loads all sprites from given directory.
+    :param directory: Directory with sprites
+    :param extensions: Allowed extensions for sprite files
+    :return: Sprite dictionary
+    """
+    fonts = {}
+    for font_file in os.listdir(directory):
+        name, extension = os.path.splitext(font_file)
+        if extension.lower() in extensions:
+            fonts[name] = os.path.abspath(os.path.join(directory, font_file))
+            print(fonts[name])
+    return fonts
