@@ -1,43 +1,65 @@
 import pygame as pg
-
-pg.font.init()
+from .. import setup
 
 
 class Button(object):
     """
     Class for handling mouse clicking event.
     """
-    font_name = pg.font.match_font('arial')
 
-    def __init__(self, x, y, width, height):
+    def __init__(self, x, y, width, height, text, text_size, font_name):
         self.x = x
         self.y = y
         self.height = height
         self.width = width
-        self.text = None
+        self.text = text
+        self.text_size = text_size
         self.pressed = False
-        self.button_image = None
+        self.active = False
+        self.inactive_image = None
+        self.active_image = None
+        self.fonts = setup.FONTS
+        self.font_name = self.fonts[font_name]
 
-    def set_button(self, text, text_size, text_color, button_color=None):
+    def set_inactive(self, text_color, button_image=None):
         """
         Adds button to given screen.
-        :param button_color: color of button background
-        :param text_size: Size of font
-        :param text: Text on the button
+        :param button_image: Image of button background
         :param text_color: Color of text
         :return: Button object
         """
-        self.text = text
-        self.button_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
-        if button_color:
-            self.button_image.fill(button_color)
-        font = pg.font.Font(Button.font_name, text_size)
+        self.inactive_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_image:
+            button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
+            button_rect = button_image.get_rect()
+            button_rect.center = self.inactive_image.get_rect().center
+            self.inactive_image.blit(button_image, button_rect)
+        font = pg.font.Font(self.font_name, self.text_size)
         text_button = font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
-        text_rect.center = self.button_image.get_rect().center
-        self.button_image.blit(text_button, text_rect)
+        text_rect.center = self.inactive_image.get_rect().center
+        self.inactive_image.blit(text_button, text_rect)
 
-    def is_pressed(self, pos):
+    def set_active(self, text_color, button_image=None):
+        """
+        Adds button to given screen.
+        :param button_image: Image of button background
+        :param text_color: Color of text
+        :return: Button object
+        """
+        self.active_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_image:
+            button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
+            button_rect = button_image.get_rect()
+            button_rect.center = self.active_image.get_rect().center
+            self.active_image.blit(button_image, button_rect)
+        font = pg.font.Font(self.font_name, self.text_size)
+        text_button = font.render(self.text, True, text_color)
+        text_rect = text_button.get_rect()
+        text_rect.center = self.inactive_image.get_rect().center
+        self.active_image.blit(text_button, text_rect)
+
+    def check_crossing(self, pos):
         """
         Checks if pressed button.
         :param pos
@@ -50,4 +72,7 @@ class Button(object):
             return False
 
     def draw(self, surface):
-        surface.blit(self.button_image, (self.x, self.y))
+        if self.active:
+            surface.blit(self.active_image, (self.x, self.y))
+        else:
+            surface.blit(self.inactive_image, (self.x, self.y))
