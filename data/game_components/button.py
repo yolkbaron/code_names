@@ -18,7 +18,7 @@ class Button(object):
         self.pressed = False
         self.button_image = None
 
-    def set_button(self, text, text_size, text_color):
+    def set_button(self, text, text_size, text_color, button_color = None):
         """
         Adds button to given screen.
         :param text_size: Size of font
@@ -28,6 +28,8 @@ class Button(object):
         """
         self.text = text
         self.button_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_color:
+            self.button_image.fill(button_color)
         font = pg.font.Font(Button.font_name, text_size)
         text_button = font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
