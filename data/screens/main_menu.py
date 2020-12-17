@@ -26,10 +26,10 @@ class MainMenu(tools.GameState):
 
     def set_background(self):
         self.background = setup.SPRITES["background"]
-        font = pg.font.Font(setup.FONTS["Marlboro"], 300)
+        font = pg.font.Font(setup.FONTS["Marlboro"], int(300*self.multiplier))
         title = font.render("CODE NAMES", True, c.GOLD)
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
-        self.background.blit(title, (80, 80))
+        self.background.blit(title, (int(80*self.multiplier), int(80*self.multiplier)))
 
     def set_buttons(self):
         play_button = button.Button(

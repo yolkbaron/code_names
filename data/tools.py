@@ -206,5 +206,4 @@ def load_all_fonts(directory, extensions=(".ttf", ".otf")):
         name, extension = os.path.splitext(font_file)
         if extension.lower() in extensions:
             fonts[name] = os.path.abspath(os.path.join(directory, font_file))
-            print(fonts[name])
     return fonts
