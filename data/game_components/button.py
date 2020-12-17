@@ -56,7 +56,7 @@ class Button(object):
         font = pg.font.Font(self.font_name, self.text_size)
         text_button = font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
-        text_rect.center = self.inactive_image.get_rect().center
+        text_rect.center = self.active_image.get_rect().center
         self.active_image.blit(text_button, text_rect)
 
     def check_crossing(self, pos):

@@ -74,6 +74,7 @@ class Game(object):
             self.update()
             pg.display.update()
             self.clock.tick(self.fps)
+        pg.quit()
 
     def set_screens(self, screen_dict, current_screen_name):
         """
@@ -193,7 +194,7 @@ def load_all_sprites(directory, extensions=(".jpg", ".png")):
     return sprites
 
 
-def load_all_fonts(directory, extensions=(".ttf")):
+def load_all_fonts(directory, extensions=(".ttf", ".otf")):
     """
     Loads all sprites from given directory.
     :param directory: Directory with sprites

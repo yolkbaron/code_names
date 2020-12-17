@@ -15,6 +15,7 @@ class MainMenu(tools.GameState):
         game_info = {}
         self.start(0.0, game_info)
         self.cursor_pos = pg.mouse.get_pos()
+        self.fonts = setup.FONTS
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -25,13 +26,14 @@ class MainMenu(tools.GameState):
 
     def set_background(self):
         self.background = setup.SPRITES["background"]
-        self.background_rect = self.background.get_rect()
-
+        font = pg.font.Font(setup.FONTS["Marlboro"], 300)
+        title = font.render("CODE NAMES", True, c.GOLD)
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(title, (80, 80))
 
     def set_buttons(self):
         play_button = button.Button(
-            int(400 * self.multiplier),
+            int(450 * self.multiplier),
             int(400 * self.multiplier),
             int(400 * self.multiplier),
             int(200 * self.multiplier),
@@ -42,7 +44,7 @@ class MainMenu(tools.GameState):
         play_button.set_inactive(c.WHITE)
         play_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         exit_button = button.Button(
-            int(400 * self.multiplier),
+            int(450 * self.multiplier),
             int(700 * self.multiplier),
             int(400 * self.multiplier),
             int(200 * self.multiplier),
