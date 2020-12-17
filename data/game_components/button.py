@@ -36,7 +36,7 @@ class Button(object):
         self.height = height
         self.text = text
         self.button_image = pg.Surface(self.width, self.height)
-        font = pg.font.Font(font_name, size)
+        font = pg.font.Font(Button.font_name, size)
         text_button = font.render(self.text, True, color)
         text_rect = text_button.get_rect()
         text_rect.center = self.button_image.center
