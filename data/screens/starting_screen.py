@@ -7,7 +7,9 @@ class StartingScreen(tools.GameState):
 
     def __init__(self):
         tools.GameState.__init__(self)
-        self.screen = pg.display.set_mode((1000, 1000))  # FIXME screen size is in constants
+        self.name = c.STARTING_SCREEN
+
+        """self.screen = pg.display.set_mode((1000, 1000))  # FIXME screen size is in constants
         f1 = pg.font.Font(None, 80)
         f2 = pg.font.Font(None, 50)
         text1 = f1.render('Приветствую вас странники!', True, c.RED)
@@ -19,9 +21,8 @@ class StartingScreen(tools.GameState):
         self.screen.blit(text2, (200, 200))  # FIXME
         self.screen.blit(text3, (260, 250))  # FIXME
         self.screen.blit(text4, (130, 500))  # FIXME
-        self.screen.blit(text5, (260, 550))  # FIXME
+        self.screen.blit(text5, (260, 550))  # FIXME"""
 
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
-        self.next_screen = self.get_next_screen()

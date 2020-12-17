@@ -86,7 +86,6 @@ class GameState(object):
         self.current_time = 0.0
         self.done = False
         self.quit = False
-        self.next_screen = None
         self.game_info = {}
 
     def update(self, surface, keys, current_time):
@@ -164,7 +163,7 @@ def load_all_music(directory, extensions=()):
     return music
 
 
-def load_all_sprites(directory, extensions=()):
+def load_all_sprites(directory, extensions=(".jpg")):
     """
     Loads all sprites from given directory.
     :param directory: Directory with sprites
@@ -174,6 +173,6 @@ def load_all_sprites(directory, extensions=()):
     sprites = {}
     for sprite_file in os.listdir(directory):
         name, extension = os.path.splitext(sprite_file)
-        if name.lower() in extensions:
+        if extension.lower() in extensions:
             sprites[name] = pg.image.load(os.path.join(directory, sprite_file))
     return sprites
