@@ -9,7 +9,7 @@ class Game(object):
     """
     def __init__(self, caption):
         self.caption = caption
-        self.screen = pg.display.get_surface()
+        self.display = pg.display.get_surface()
         self.fps = constants.FPS
         self.clock = pg.time.Clock()
         self.done = False
@@ -26,7 +26,7 @@ class Game(object):
         :return: None
         """
         self.screen_name = self.state.next
-        self.screen = self.screen_dict[self.screen_name]
+        self.display = self.screen_dict[self.screen_name]
         self.state.start(self.current_time, self.game_info)
 
     def update(self):
@@ -39,7 +39,7 @@ class Game(object):
             self.done = True
         elif self.state.done:
             self.switch_state()
-        self.state.update(self.screen, self.keys, self.current_time)
+        self.state.update(self.display, self.keys, self.current_time)
 
     def event_loop(self):
         """

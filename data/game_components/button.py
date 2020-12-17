@@ -1,4 +1,5 @@
 import pygame as pg
+from .. import constants
 pg.font.init()
 
 
@@ -8,49 +9,32 @@ class Button(object):
     """
     font_name = pg.font.match_font('arial')
 
-    def __init__(self):
-        self.x = None
-        self.y = None
-        self.height = None
-        self.width = None
+    def __init__(self, x, y, width, height):
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
         self.text = None
         self.pressed = False
         self.button_image = None
 
-    font_name = pg.font.match_font('arial')
-
-    def create_button(self, x, y, width, height, text, size, text_color, back_color):
+    def set_button(self, text, text_size, text_color):
         """
         Adds button to given screen.
-        :param x: top-left x position of button
-        :param y: top-left y position of button
-        :param width: Width of button
-        :param height: Height of button
+        :param text_size: Size of font
         :param text: Text on the button
-        :param button_image: Image of button
-        :param color: Color of text
+        :param text_color: Color of text
         :return: Button object
         """
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
         self.text = text
-        self.button_image = pg.Surface((self.width, self.height))
-        self.button_image.fill(back_color)
-        font = pg.font.Font(Button.font_name, size)
+        self.button_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        font = pg.font.Font(Button.font_name, text_size)
         text_button = font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
         text_rect.center = self.button_image.get_rect().center
         self.button_image.blit(text_button, text_rect)
 
-    def remove_button(self, screen):
-        """
-        Removes button from screen
-        :param screen: Screen
-        :return: None
-        """
-        # TODO
+
 
     def is_pressed(self, pos):
         """
@@ -63,3 +47,6 @@ class Button(object):
             return True
         else:
             return False
+
+    def draw(self, surface):
+        surface.blit(self.button_image, (self.x, self.y))

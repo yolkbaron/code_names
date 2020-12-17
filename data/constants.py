@@ -36,6 +36,8 @@ GOLD         = (255, 215, 0)
 
 BGCOLOR = WHITE
 
+MULTIPLIER = SCREEN_HEIGHT/1080
+
 # WordCard states
 COVERED = 'covered'
 UNCOVERED = 'uncovered'

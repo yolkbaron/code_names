@@ -11,9 +11,11 @@ class MainMenu(tools.GameState):
 
     def __init__(self):
         tools.GameState.__init__(self)
+        self.multiplier = c.MULTIPLIER
         self.name = c.MAIN_MENU
         self.quit = False
         game_info = {}
+        self.buttons = {}
         self.start(0.0, game_info)
 
     def start(self, current_time, game_info):
@@ -30,11 +32,15 @@ class MainMenu(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_buttons(self):
-        self.buttons = {}
-
+        play_button = button.Button(int(400*self.multiplier), int(200*self.multiplier), int(300*self.multiplier), int(200*self.multiplier))
+        play_button.set_button("Play", int(150*self.multiplier), c.WHITE)
+        self.buttons["play"] = play_button
 
     def update(self, surface, keys, current_time):
         surface.blit(self.background, (0, 0))
-        start = button.Button()
-        start.create_button(20, 20, 300, 200, "start", 100, c.BLUE)
-        surface.blit(start.button_image, (start.x, start.y))
+        self.draw_buttons(surface)
+
+    def draw_buttons(self, surface):
+        for key in self.buttons.keys():
+            self.buttons[key].draw(surface)
+
