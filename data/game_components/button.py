@@ -6,6 +6,7 @@ class Button(object):
     """
     Class for handling mouse clicking event.
     """
+    font_name = pg.font.match_font('arial')
 
     def __init__(self):
         self.x = None
@@ -16,9 +17,8 @@ class Button(object):
         self.pressed = False
         self.button_image = None
 
-    font_name = pg.font.match_font('arial')
 
-    def create_button(self, x, y, width, height, text, button_image, size, color):
+    def create_button(self, x, y, width, height, text, size, text_color, back_color):
         """
         Adds button to given screen.
         :param x: top-left x position of button
@@ -36,10 +36,11 @@ class Button(object):
         self.height = height
         self.text = text
         self.button_image = pg.Surface((self.width, self.height))
+        self.button_image.fill(back_color)
         font = pg.font.Font(Button.font_name, size)
-        text_button = font.render(self.text, True, color)
+        text_button = font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
-        text_rect.center = self.button_image.center
+        text_rect.center = self.button_image.get_rect().center
         self.button_image.blit(text_button, text_rect)
 
     def remove_button(self, screen):
