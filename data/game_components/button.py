@@ -16,7 +16,7 @@ class Button(object):
         self.pressed = False
         self.button_image = None
 
-    font_name = pygame.font.match_font('arial')
+    font_name = pg.font.match_font('arial')
 
     def create_button(self, x, y, width, height, text, button_image, size, color):
         """
