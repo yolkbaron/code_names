@@ -11,12 +11,10 @@ class MainMenu(tools.GameState):
 
     def __init__(self):
         tools.GameState.__init__(self)
-        self.multiplier = c.MULTIPLIER
         self.name = c.MAIN_MENU
-        self.quit = False
         game_info = {}
-        self.buttons = {}
         self.start(0.0, game_info)
+        self.cursor_pos = pg.mouse.get_pos()
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -33,18 +31,50 @@ class MainMenu(tools.GameState):
 
     def set_buttons(self):
         play_button = button.Button(
-                                    int(400*self.multiplier),
-                                    int(200*self.multiplier),
-                                    int(300*self.multiplier),
-                                    int(200*self.multiplier)
-                                    )
-        play_button.set_button("Play", int(150*self.multiplier), c.WHITE)
+            int(400 * self.multiplier),
+            int(400 * self.multiplier),
+            int(400 * self.multiplier),
+            int(200 * self.multiplier),
+            "Play",
+            int(150 * self.multiplier),
+            "Bullpen3D"
+        )
+        play_button.set_inactive(c.WHITE)
+        play_button.set_active(c.WHITE, setup.SPRITES["button_active"])
+        exit_button = button.Button(
+            int(400 * self.multiplier),
+            int(700 * self.multiplier),
+            int(400 * self.multiplier),
+            int(200 * self.multiplier),
+            "Exit",
+            int(150 * self.multiplier),
+            "Bullpen3D"
+        )
+        exit_button.set_inactive(c.WHITE)
+        exit_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["play"] = play_button
+        self.buttons["exit"] = exit_button
 
-    def update(self, surface, keys, current_time):
+    def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
         self.draw_buttons(surface)
+        self.cursor_pos = pg.mouse.get_pos()
+
+        for key in self.buttons.keys():
+            if self.buttons[key].check_crossing(self.cursor_pos):
+                self.buttons[key].active = True
+            else:
+                self.buttons[key].active = False
+
+        self.buttons_processing()
 
     def draw_buttons(self, surface):
         for key in self.buttons.keys():
             self.buttons[key].draw(surface)
+
+    def buttons_processing(self):
+        for key in self.buttons.keys():
+            if self.buttons[key].pressed:
+                self.buttons[key].pressed = False
+                if key == "exit":
+                    self.quit = True
