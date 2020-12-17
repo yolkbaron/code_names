@@ -1,5 +1,5 @@
 import pygame as pg
-from .. import constants
+
 pg.font.init()
 
 
@@ -18,9 +18,10 @@ class Button(object):
         self.pressed = False
         self.button_image = None
 
-    def set_button(self, text, text_size, text_color, button_color = None):
+    def set_button(self, text, text_size, text_color, button_color=None):
         """
         Adds button to given screen.
+        :param button_color: color of button background
         :param text_size: Size of font
         :param text: Text on the button
         :param text_color: Color of text
@@ -35,8 +36,6 @@ class Button(object):
         text_rect = text_button.get_rect()
         text_rect.center = self.button_image.get_rect().center
         self.button_image.blit(text_button, text_rect)
-
-
 
     def is_pressed(self, pos):
         """

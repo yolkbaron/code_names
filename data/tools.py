@@ -7,6 +7,7 @@ class Game(object):
     """
     Class for handling entire project. Contains game, event and main loops.
     """
+
     def __init__(self, caption):
         self.caption = caption
         self.display = pg.display.get_surface()
@@ -81,6 +82,7 @@ class GameState(object):
     """
     Contains current and next states of Game.
     """
+
     def __init__(self):
         self.start_time = 0.0
         self.current_time = 0.0
@@ -99,11 +101,12 @@ class GameState(object):
         """
         Depends from the specific screen
         :param current_time: Absolute time of the game
-        :param info: GameInfo class object
+        :param game_info: GameInfo object
         :return: None
         """
         self.game_info = game_info
         self.start_time = current_time
+
     def get_next_screen(self):
         """
         Returns next screen according to the name of current screen
@@ -163,7 +166,7 @@ def load_all_music(directory, extensions=()):
     return music
 
 
-def load_all_sprites(directory, extensions=(".jpg")):
+def load_all_sprites(directory, extensions=".jpg"):
     """
     Loads all sprites from given directory.
     :param directory: Directory with sprites

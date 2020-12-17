@@ -32,7 +32,12 @@ class MainMenu(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_buttons(self):
-        play_button = button.Button(int(400*self.multiplier), int(200*self.multiplier), int(300*self.multiplier), int(200*self.multiplier))
+        play_button = button.Button(
+                                    int(400*self.multiplier),
+                                    int(200*self.multiplier),
+                                    int(300*self.multiplier),
+                                    int(200*self.multiplier)
+                                    )
         play_button.set_button("Play", int(150*self.multiplier), c.WHITE)
         self.buttons["play"] = play_button
 
@@ -43,4 +48,3 @@ class MainMenu(tools.GameState):
     def draw_buttons(self, surface):
         for key in self.buttons.keys():
             self.buttons[key].draw(surface)
-
