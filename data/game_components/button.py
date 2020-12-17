@@ -35,7 +35,7 @@ class Button(object):
         self.width = width
         self.height = height
         self.text = text
-        self.button_image = pygame.Surface(self.width, self.height)
+        self.button_image = pg.Surface(self.width, self.height)
         font = pg.font.Font(font_name, size)
         text_button = font.render(self.text, True, color)
         text_rect = text_button.get_rect()
