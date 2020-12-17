@@ -1,4 +1,5 @@
 import pygame as pg
+pg.font.init()
 
 
 class Button(object):
@@ -15,7 +16,9 @@ class Button(object):
         self.pressed = False
         self.button_image = None
 
-    def create_button(self, x, y, width, height, text, button_image, settings, color):
+    font_name = pygame.font.match_font('arial')
+
+    def create_button(self, x, y, width, height, text, button_image, size, color):
         """
         Adds button to given screen.
         :param x: top-left x position of button
@@ -24,8 +27,7 @@ class Button(object):
         :param height: Height of button
         :param text: Text on the button
         :param button_image: Image of button
-        :param settings: Something?
-        :param color: Color of button?
+        :param color: Color of text
         :return: Button object
         """
         self.x = x
@@ -34,10 +36,11 @@ class Button(object):
         self.height = height
         self.text = text
         self.button_image = pg.Rect(self.x, self.y, self.width, self.height)
-        text_button = settings.font_text.render(self.text, True, color)  # FIXME what is settings?
+        font = pg.font.Font(font_name, size)
+        text_button = font.render(self.text, True, color)
         text_rect = text_button.get_rect()
-        text_rect.center = self.button_image.center  # FIXME no such attribute in class Button!
-        self.button_image.blit(text_button, text_rect)  # FIXME
+        text_rect.center = self.button_image.center
+        self.button_image.blit(text_button, text_rect)
 
     def remove_button(self, screen):
         """
