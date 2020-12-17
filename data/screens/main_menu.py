@@ -1,4 +1,5 @@
 import pygame as pg
+from ..game_components import button
 from .. import setup, tools
 from .. import constants as c
 
@@ -31,5 +32,9 @@ class MainMenu(tools.GameState):
     def set_buttons(self):
         self.buttons = {}
 
+
     def update(self, surface, keys, current_time):
         surface.blit(self.background, (0, 0))
+        start = button.Button()
+        start.create_button(20, 20, 300, 200, "start", 100, c.BLUE)
+        surface.blit(start.button_image, (start.x, start.y))
