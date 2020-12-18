@@ -86,13 +86,13 @@ class WordCard(button.Button):
         self.active = False
         self.inactive_image = None
         self.active_image = None
-        self.capitane = False
+        self.captain = False
         self.capitane_image = None
         self.color = color
         self.fonts = setup.FONTS
         self.font = pg.font.Font(self.fonts[font_name], self.text_size)
 
-    def set_capitane(self, text_color, button_image=None):
+    def set_captain(self, text_color, button_image=None):
         self.capitane_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
         if button_image:
             button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
@@ -118,7 +118,7 @@ class WordCard(button.Button):
 
 
     def draw(self, surface):
-        if self.capitane:
+        if self.captain:
             surface.blit(self.capitane_image, (self.x, self.y))
 
     def get_image(self, x, y, width, height):
