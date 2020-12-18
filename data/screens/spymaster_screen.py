@@ -20,12 +20,14 @@ class SpyMaster(tools.GameState):
 
 
 
+
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
 
         self.set_background()
         self.set_buttons()
+        self.next = self.get_next_screen()
 
     def set_background(self):
         self.background = setup.SPRITES["background2"]
@@ -337,7 +339,18 @@ class SpyMaster(tools.GameState):
         word20.set_capitane(c.BLACK, setup.SPRITES[word20.color])
         self.buttons["word20"] = word20
 
-
+        play_button = button.Button(
+            int(1100 * self.multiplier),
+            int(60 * self.multiplier),
+            int(400 * self.multiplier),
+            int(200 * self.multiplier),
+            "Next",
+            int(150 * self.multiplier),
+            "Bullpen3D"
+        )
+        play_button.set_inactive(c.BLACK)
+        play_button.set_active(c.BLACK, setup.SPRITES["button_active"])
+        self.buttons["next"] = play_button
 
 
 
@@ -360,7 +373,11 @@ class SpyMaster(tools.GameState):
 
     def buttons_processing(self):
         for key in self.buttons.keys():
+            if self.buttons[key].check_crossing(self.cursor_pos):
+                self.buttons[key].active = True
+            else:
+                self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "exit":
-                    self.quit = True
+                if key == "next":
+                    self.done = True

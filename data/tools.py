@@ -144,6 +144,8 @@ class GameState(object):
             next = constants.STARTING_SCREEN
         if self.name == constants.STARTING_SCREEN:
             next = constants.SPYMASTER
+        if self.name == constants.SPYMASTER:
+            next = constants.FIELD_OPERATIVE
         return next
 
 
