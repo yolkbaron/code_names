@@ -1,7 +1,9 @@
 import pygame as pg
 from ..game_components import button
+from ..game_components import word_card
 from .. import setup, tools
 from .. import constants as c
+import random
 
 class SpyMaster(tools.GameState):
     """
@@ -16,6 +18,8 @@ class SpyMaster(tools.GameState):
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
 
+
+
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
@@ -28,12 +32,18 @@ class SpyMaster(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_buttons(self):
-        word1 = button.Button(
+        all_words = setup.WORDS["words_list"]
+        words = []
+        order = random.sample(range(0, 187), 20)
+        for i in order:
+            words.append(all_words[i])
+
+        word1 = word_card.WordCard(
             int(150 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word1",
+            words[0],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -41,12 +51,12 @@ class SpyMaster(tools.GameState):
         word1.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word1"] = word1
 
-        word2 = button.Button(
+        word2 = word_card.WordCard(
             int(450 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word2",
+            words[1],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -54,12 +64,12 @@ class SpyMaster(tools.GameState):
         word2.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word2"] = word2
 
-        word3 = button.Button(
+        word3 = word_card.WordCard(
             int(750 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word3",
+            words[2],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -67,12 +77,12 @@ class SpyMaster(tools.GameState):
         word3.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word3"] = word3
 
-        word4 = button.Button(
+        word4 = word_card.WordCard(
             int(1050 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word4",
+            words[3],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -80,12 +90,12 @@ class SpyMaster(tools.GameState):
         word4.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word4"] = word4
 
-        word5 = button.Button(
+        word5 = word_card.WordCard(
             int(1350 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word5",
+            words[4],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -93,12 +103,12 @@ class SpyMaster(tools.GameState):
         word5.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word5"] = word5
 
-        word6 = button.Button(
+        word6 = word_card.WordCard(
             int(150 * self.multiplier),
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word6",
+            words[5],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -106,12 +116,12 @@ class SpyMaster(tools.GameState):
         word6.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word6"] = word6
 
-        word7 = button.Button(
+        word7 = word_card.WordCard(
             int(450 * self.multiplier),
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word2",
+            words[6],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -119,12 +129,12 @@ class SpyMaster(tools.GameState):
         word7.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word7"] = word7
 
-        word8 = button.Button(
+        word8 = word_card.WordCard(
             int(750 * self.multiplier),
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word8",
+            words[7],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -132,12 +142,12 @@ class SpyMaster(tools.GameState):
         word8.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word8"] = word8
 
-        word9 = button.Button(
+        word9 = word_card.WordCard(
             int(1050 * self.multiplier),
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word9",
+            words[8],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -145,12 +155,12 @@ class SpyMaster(tools.GameState):
         word9.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word9"] = word9
 
-        word10 = button.Button(
+        word10 = word_card.WordCard(
             int(1350 * self.multiplier),
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word10",
+            words[9],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -158,12 +168,12 @@ class SpyMaster(tools.GameState):
         word10.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word10"] = word10
 
-        word11 = button.Button(
+        word11 = word_card.WordCard(
             int(150 * self.multiplier),
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word11",
+            words[10],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -171,12 +181,12 @@ class SpyMaster(tools.GameState):
         word11.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word11"] = word11
 
-        word12 = button.Button(
+        word12 = word_card.WordCard(
             int(450 * self.multiplier),
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word12",
+            words[11],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -184,12 +194,12 @@ class SpyMaster(tools.GameState):
         word12.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word12"] = word12
 
-        word13 = button.Button(
+        word13 = word_card.WordCard(
             int(750 * self.multiplier),
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word13",
+            words[12],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -197,12 +207,12 @@ class SpyMaster(tools.GameState):
         word13.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word13"] = word13
 
-        word14 = button.Button(
+        word14 = word_card.WordCard(
             int(1050 * self.multiplier),
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word14",
+            words[13],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -210,12 +220,12 @@ class SpyMaster(tools.GameState):
         word14.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word14"] = word14
 
-        word15 = button.Button(
+        word15 = word_card.WordCard(
             int(1350 * self.multiplier),
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word15",
+            words[14],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -223,12 +233,12 @@ class SpyMaster(tools.GameState):
         word15.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word15"] = word15
 
-        word16 = button.Button(
+        word16 = word_card.WordCard(
             int(150 * self.multiplier),
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word16",
+            words[15],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -236,12 +246,12 @@ class SpyMaster(tools.GameState):
         word16.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word16"] = word16
 
-        word17 = button.Button(
+        word17 = word_card.WordCard(
             int(450 * self.multiplier),
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word17",
+            words[16],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -249,12 +259,12 @@ class SpyMaster(tools.GameState):
         word17.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word17"] = word17
 
-        word18 = button.Button(
+        word18 = word_card.WordCard(
             int(750 * self.multiplier),
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word18",
+            words[17],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -262,12 +272,12 @@ class SpyMaster(tools.GameState):
         word18.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word18"] = word18
 
-        word19 = button.Button(
+        word19 = word_card.WordCard(
             int(1050 * self.multiplier),
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word19",
+            words[18],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -275,12 +285,12 @@ class SpyMaster(tools.GameState):
         word19.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word19"] = word19
 
-        word20 = button.Button(
+        word20 = word_card.WordCard(
             int(1350 * self.multiplier),
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word20",
+            words[19],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
