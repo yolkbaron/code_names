@@ -59,26 +59,19 @@ class MainMenu(tools.GameState):
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
-        self.draw_buttons(surface)
         self.cursor_pos = pg.mouse.get_pos()
+        self.update_buttons(surface)
 
+    def update_buttons(self, surface):
         for key in self.buttons.keys():
             if self.buttons[key].check_crossing(self.cursor_pos):
                 self.buttons[key].active = True
             else:
                 self.buttons[key].active = False
-
-        self.buttons_processing()
-
-    def draw_buttons(self, surface):
-        for key in self.buttons.keys():
-            self.buttons[key].draw(surface)
-
-    def buttons_processing(self):
-        for key in self.buttons.keys():
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
                 if key == "exit":
                     self.quit = True
                 if key == "play":
                     self.done = True
+            self.buttons[key].draw(surface)
