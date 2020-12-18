@@ -41,8 +41,8 @@ class MainMenu(tools.GameState):
             int(150 * self.multiplier),
             "Bullpen3D"
         )
-        play_button.set_inactive(c.BLACK)
-        play_button.set_active(c.BLACK, setup.SPRITES["button_active"])
+        play_button.set_inactive(c.WHITE)
+        play_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         exit_button = button.Button(
             int(450 * self.multiplier),
             int(700 * self.multiplier),
@@ -52,8 +52,8 @@ class MainMenu(tools.GameState):
             int(150 * self.multiplier),
             "Bullpen3D"
         )
-        exit_button.set_inactive(c.BLACK)
-        exit_button.set_active(c.BLACK, setup.SPRITES["button_active"])
+        exit_button.set_inactive(c.WHITE)
+        exit_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["play"] = play_button
         self.buttons["exit"] = exit_button
 

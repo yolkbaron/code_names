@@ -32,7 +32,6 @@ class StartingScreen(tools.GameState):
         self.background.blit(team_blue, (int(260 * self.multiplier), int(270 * self.multiplier)))
         self.background.blit(team_red, (int(1100 * self.multiplier), int(100 * self.multiplier)))
 
-
     def set_buttons(self):
         start_button = button.Button(
             int(180 * self.multiplier),
