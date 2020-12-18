@@ -40,12 +40,12 @@ class StartingScreen(tools.GameState):
             int(150 * self.multiplier),
             "top secret text"
         )
-        start_button.set_inactive(c.WHITE)
+        start_button.set_inactive(c.BLACK)
         start_button.set_active(c.RED)
         self.buttons["start"] = start_button
 
     def set_textboxes(self):
-        spy1 = text_box.InputBox(0, 0, 200, 200, c.WHITE, 50, "top secret text")
+        spy1 = text_box.InputBox(0, 0, 200, 200, c.BLACK, 50, "top secret text")
         self.text_boxes["spy_1"] = spy1
 
     def update(self, surface, keys, mouse, current_time):
