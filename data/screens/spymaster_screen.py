@@ -65,7 +65,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[0],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[0]
         )
         word1.set_inactive(c.WHITE)
@@ -79,7 +79,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[1],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[1]
         )
         word2.set_inactive(c.WHITE)
@@ -93,7 +93,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[2],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[2]
         )
         word3.set_inactive(c.WHITE)
@@ -107,7 +107,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[3],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[3]
         )
         word4.set_inactive(c.WHITE)
@@ -121,7 +121,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[4],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[4]
         )
         word5.set_inactive(c.WHITE)
@@ -135,7 +135,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[5],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[5]
         )
         word6.set_inactive(c.WHITE)
@@ -149,7 +149,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[6],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[6]
         )
         word7.set_inactive(c.WHITE)
@@ -163,7 +163,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[7],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[7]
         )
         word8.set_inactive(c.WHITE)
@@ -177,7 +177,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[8],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[8]
         )
         word9.set_inactive(c.WHITE)
@@ -191,7 +191,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[9],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[9]
         )
         word10.set_inactive(c.WHITE)
@@ -205,7 +205,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[10],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[10]
         )
         word11.set_inactive(c.WHITE)
@@ -219,7 +219,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[11],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[11]
         )
         word12.set_inactive(c.WHITE)
@@ -233,7 +233,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[12],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[12]
         )
         word13.set_inactive(c.WHITE)
@@ -247,7 +247,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[13],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[13]
         )
         word14.set_inactive(c.WHITE)
@@ -261,7 +261,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[14],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[14]
         )
         word15.set_inactive(c.WHITE)
@@ -275,7 +275,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[15],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[15]
         )
         word16.set_inactive(c.WHITE)
@@ -289,7 +289,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[16],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[16]
         )
         word17.set_inactive(c.WHITE)
@@ -303,7 +303,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[17],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[17]
         )
         word18.set_inactive(c.WHITE)
@@ -317,7 +317,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[18],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[18]
         )
         word19.set_inactive(c.WHITE)
@@ -331,7 +331,7 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[19],
             int(50 * self.multiplier),
-            "Bullpen3D",
+            "top secret text",
             color[19]
         )
         word20.set_inactive(c.WHITE)
