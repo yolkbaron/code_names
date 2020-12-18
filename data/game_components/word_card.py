@@ -86,11 +86,25 @@ class WordCard(button.Button):
         self.active = False
         self.inactive_image = None
         self.active_image = None
+        self.capitane = False
+        self.capitane_image = None
         self.color = color
         self.fonts = setup.FONTS
         self.font = pg.font.Font(self.fonts[font_name], self.text_size)
 
-    def set_default(self, text_color, button_image=None):
+    def set_capitane(self, text_color, button_image=None):
+        self.capitane_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_image:
+            button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
+            button_rect = button_image.get_rect()
+            button_rect.center = self.capitane_image.get_rect().center
+            self.capitane_image.blit(button_image, button_rect)
+        text_button = self.font.render(self.text, True, text_color)
+        text_rect = text_button.get_rect()
+        text_rect.center = self.capitane_image.get_rect().center
+        self.capitane_image.blit(text_button, text_rect)
+
+    def set_inactive(self, text_color, button_image=None):
         self.inactive_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
         if button_image:
             button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
@@ -102,6 +116,10 @@ class WordCard(button.Button):
         text_rect.center = self.inactive_image.get_rect().center
         self.inactive_image.blit(text_button, text_rect)
 
+
+    def draw(self, surface):
+        if self.capitane:
+            surface.blit(self.capitane_image, (self.x, self.y))
 
     def get_image(self, x, y, width, height):
         """
