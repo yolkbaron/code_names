@@ -116,7 +116,7 @@ class GameState(object):
                 else:
                     self.text_boxes[key].text += event.unicode
                 self.text_boxes[key].txt_surface = self.text_boxes[key].font.render(self.text_boxes[key].text, True,
-                                                                                    self.text_boxes[key].color)
+                                                                                    self.text_boxes[key].text_color)
 
     def update(self, surface, keys, mouse, current_time):
         """

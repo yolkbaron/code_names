@@ -1,6 +1,7 @@
 import pygame as pg
 from .. import setup
 from ..game_components import button
+from .. import constants
 
 
 class InputBox(button.Button):
@@ -8,14 +9,15 @@ class InputBox(button.Button):
     def __init__(self, x, y, width, height, text_color, text_size, font_name, text=''):
         button.Button.__init__(self, x, y, width, height, text, text_size, font_name)
         self.text_color = text_color
-        self.txt_surface = self.font.render(text, True, self.text_color)
         self.active = False
-        self.COLOR_INACTIVE = pg.Color('lightskyblue3')
-        self.COLOR_ACTIVE = pg.Color('dodgerblue2')
-        self.color = self.COLOR_INACTIVE
+        self.color_inactive = constants.GRAY
+        self.color_active = constants.YELLOW
+        self.color = self.color_inactive
+        self.txt_surface = self.font.render(text, True, self.text_color)
 
     def update(self):
-        self.color = self.COLOR_ACTIVE if self.active else self.COLOR_INACTIVE
+        pass
+        self.color = self.color_active if self.active else self.color_inactive
 
     def draw(self, screen):
         # Blit the text.
