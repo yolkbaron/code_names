@@ -51,18 +51,10 @@ class Game(object):
             if event.type == pg.QUIT:
                 self.done = True
             elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.MOUSEBUTTONUP:
-                self.mouse = pg.mouse.get_pressed()
-                for key in self.state.buttons.keys():
-                    if self.state.buttons[key].check_crossing(self.state.cursor_pos):
-                        self.state.buttons[key].pressed = True
+                self.state.mouse_button_pressed(event)
             elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
-                self.keys = pg.key.get_pressed()
+                self.state.key_pressed(event)
 
-        for key in self.state.buttons.keys():
-            if self.state.buttons[key].check_crossing(self.state.cursor_pos):
-                self.state.buttons[key].active = True
-            else:
-                self.state.buttons[key].active = False
 
     def main_loop(self):
         """
@@ -102,6 +94,15 @@ class GameState(object):
         self.game_info = {}
         self.buttons = {}
         self.cursor_pos = pg.mouse.get_pos()
+
+    def mouse_button_pressed(self, event):
+        if event.button == 1:
+            for key in self.buttons.keys():
+                if self.buttons[key].check_crossing(self.cursor_pos):
+                    self.buttons[key].pressed = True
+
+    def key_pressed(self, event):
+        pass
 
     def update(self, surface, keys, mouse, current_time):
         """
