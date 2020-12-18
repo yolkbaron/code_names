@@ -17,6 +17,7 @@ class StartingScreen(tools.GameState):
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
+        self.next = self.get_next_screen()
 
         self.set_background()
         self.set_textbocks()
@@ -29,22 +30,15 @@ class StartingScreen(tools.GameState):
         self.background.blit(title, (int(80 * self.multiplier), int(80 * self.multiplier)))
 
     def set_textbocks(self):
-        input_box1 = text_bocks.InputBox(100, 100, 140, 32, c.RED, None)
-        input_box2 = text_bocks.InputBox(100, 300, 140, 32, c.BLUE, None)
-        self.input_boxes = [input_box1, input_box2]
+        pass
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
         self.cursor_pos = pg.mouse.get_pos()
-        for event in pg.event.get():
-            for box in self.input_boxes:
-                box.handle_event(event)
 
-        for box in self.input_boxes:
-            box.update()
-
-        for box in self.input_boxes:
-            box.draw(surface)
+        for key in self.text_boxes.keys():
+            self.text_boxes[key].update()
+            self.text_boxes[key].draw()
 
 
 

@@ -14,12 +14,12 @@ class MainMenu(tools.GameState):
         self.name = c.MAIN_MENU
         game_info = {}
         self.start(0.0, game_info)
-        self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
 
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
+        self.next = self.get_next_screen()
 
         self.set_background()
         self.set_buttons()
@@ -80,3 +80,5 @@ class MainMenu(tools.GameState):
                 self.buttons[key].pressed = False
                 if key == "exit":
                     self.quit = True
+                if key == "play":
+                    self.done = True

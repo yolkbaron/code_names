@@ -27,8 +27,8 @@ class Game(object):
         :return: None
         """
         self.screen_name = self.state.next
-        self.display = self.screen_dict[self.screen_name]
-        self.state.start(self.current_time, self.game_info)
+        self.state = self.screen_dict[self.screen_name]
+        self.state.start(self.current_time, self.state.game_info)
 
     def update(self):
         """
@@ -54,7 +54,6 @@ class Game(object):
                 self.state.mouse_button_pressed(event)
             elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
                 self.state.key_pressed(event)
-
 
     def main_loop(self):
         """
@@ -93,6 +92,7 @@ class GameState(object):
         self.quit = False
         self.game_info = {}
         self.buttons = {}
+        self.text_boxes = {}
         self.cursor_pos = pg.mouse.get_pos()
 
     def mouse_button_pressed(self, event):
@@ -100,9 +100,23 @@ class GameState(object):
             for key in self.buttons.keys():
                 if self.buttons[key].check_crossing(self.cursor_pos):
                     self.buttons[key].pressed = True
+            for key in self.text_boxes.keys():
+                if self.text_boxes[key].check_crossing(self.cursor_pos):
+                    self.text_boxes[key].active = True
+                else:
+                    self.text_boxes[key].active = False
 
     def key_pressed(self, event):
-        pass
+        for key in self.text_boxes.keys():
+            if self.text_boxes[key].active:
+                if event.key == pg.K_RETURN:
+                    self.text_boxes[key].text = ''
+                elif event.key == pg.K_BACKSPACE:
+                    self.text_boxes[key].text = self.text_boxes[key].text[:-1]
+                else:
+                    self.text_boxes[key].text += event.unicode
+                self.text_boxes[key].txt_surface = self.text_boxes[key].FONT.render(self.text_boxes[key].text, True,
+                                                                                    self.text_boxes[key].color)
 
     def update(self, surface, keys, mouse, current_time):
         """
@@ -126,8 +140,11 @@ class GameState(object):
         Returns next screen according to the name of current screen
         :return: Next screen from constants
         """
-        # TODO
-        return None
+        if self.name == constants.MAIN_MENU:
+            next = constants.STARTING_SCREEN
+        if self.name == constants.STARTING_SCREEN:
+            next = constants.SPYMASTER
+        return next
 
 
 def load_all_words(directory, extensions='.txt'):
