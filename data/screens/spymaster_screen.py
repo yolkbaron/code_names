@@ -5,6 +5,7 @@ from .. import setup, tools
 from .. import constants as c
 import random
 
+
 class SpyMaster(tools.GameState):
     """
     Spy master screen class
@@ -17,8 +18,6 @@ class SpyMaster(tools.GameState):
         self.start(0.0, game_info)
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
-
-
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -55,8 +54,6 @@ class SpyMaster(tools.GameState):
             color.remove(i)
             color.insert(i, "white")
         color[all[0]] = "black"
-
-
 
         word1 = word_card.WordCard(
             int(150 * self.multiplier),
@@ -337,8 +334,6 @@ class SpyMaster(tools.GameState):
         word20.set_inactive(c.WHITE)
         word20.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["word20"] = word20
-
-
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
