@@ -48,14 +48,13 @@ class SpyMaster(tools.GameState):
         for i in rad:
             all.remove(i)
             color.remove(i)
-            color.insert(i, "rad")
+            color.insert(i, "red")
         white = random.sample(all, 6)
         for i in white:
             all.remove(i)
             color.remove(i)
-            color.insert(i, "white")
-        color[all[0]] = "black"
-
+            color.insert(i, "light-yellow")
+        color[all[0]] = "purple"
 
 
         word1 = word_card.WordCard(
@@ -69,7 +68,7 @@ class SpyMaster(tools.GameState):
             color[0]
         )
         word1.set_inactive(c.BLACK)
-        word1.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word1.set_capitane(c.BLACK, setup.SPRITES[word1.color])
         self.buttons["word1"] = word1
 
         word2 = word_card.WordCard(
@@ -83,7 +82,7 @@ class SpyMaster(tools.GameState):
             color[1]
         )
         word2.set_inactive(c.BLACK)
-        word2.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word2.set_capitane(c.BLACK, setup.SPRITES[word2.color])
         self.buttons["word2"] = word2
 
         word3 = word_card.WordCard(
@@ -97,7 +96,7 @@ class SpyMaster(tools.GameState):
             color[2]
         )
         word3.set_inactive(c.BLACK)
-        word3.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word3.set_capitane(c.BLACK, setup.SPRITES[word3.color])
         self.buttons["word3"] = word3
 
         word4 = word_card.WordCard(
@@ -111,7 +110,7 @@ class SpyMaster(tools.GameState):
             color[3]
         )
         word4.set_inactive(c.BLACK)
-        word4.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word4.set_capitane(c.BLACK, setup.SPRITES[word4.color])
         self.buttons["word4"] = word4
 
         word5 = word_card.WordCard(
@@ -125,7 +124,7 @@ class SpyMaster(tools.GameState):
             color[4]
         )
         word5.set_inactive(c.BLACK)
-        word5.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word5.set_capitane(c.BLACK, setup.SPRITES[word5.color])
         self.buttons["word5"] = word5
 
         word6 = word_card.WordCard(
@@ -139,7 +138,7 @@ class SpyMaster(tools.GameState):
             color[5]
         )
         word6.set_inactive(c.BLACK)
-        word6.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word6.set_capitane(c.BLACK, setup.SPRITES[word6.color])
         self.buttons["word6"] = word6
 
         word7 = word_card.WordCard(
@@ -153,7 +152,7 @@ class SpyMaster(tools.GameState):
             color[6]
         )
         word7.set_inactive(c.BLACK)
-        word7.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word7.set_capitane(c.BLACK, setup.SPRITES[word7.color])
         self.buttons["word7"] = word7
 
         word8 = word_card.WordCard(
@@ -167,7 +166,7 @@ class SpyMaster(tools.GameState):
             color[7]
         )
         word8.set_inactive(c.BLACK)
-        word8.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word8.set_capitane(c.BLACK, setup.SPRITES[word8.color])
         self.buttons["word8"] = word8
 
         word9 = word_card.WordCard(
@@ -181,7 +180,7 @@ class SpyMaster(tools.GameState):
             color[8]
         )
         word9.set_inactive(c.BLACK)
-        word9.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word9.set_capitane(c.BLACK, setup.SPRITES[word9.color])
         self.buttons["word9"] = word9
 
         word10 = word_card.WordCard(
@@ -195,7 +194,7 @@ class SpyMaster(tools.GameState):
             color[9]
         )
         word10.set_inactive(c.BLACK)
-        word10.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word10.set_capitane(c.BLACK, setup.SPRITES[word10.color])
         self.buttons["word10"] = word10
 
         word11 = word_card.WordCard(
@@ -209,7 +208,7 @@ class SpyMaster(tools.GameState):
             color[10]
         )
         word11.set_inactive(c.BLACK)
-        word11.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word11.set_capitane(c.BLACK, setup.SPRITES[word11.color])
         self.buttons["word11"] = word11
 
         word12 = word_card.WordCard(
@@ -223,7 +222,7 @@ class SpyMaster(tools.GameState):
             color[11]
         )
         word12.set_inactive(c.BLACK)
-        word12.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word12.set_capitane(c.BLACK, setup.SPRITES[word12.color])
         self.buttons["word12"] = word12
 
         word13 = word_card.WordCard(
@@ -237,7 +236,7 @@ class SpyMaster(tools.GameState):
             color[12]
         )
         word13.set_inactive(c.BLACK)
-        word13.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word13.set_capitane(c.BLACK, setup.SPRITES[word13.color])
         self.buttons["word13"] = word13
 
         word14 = word_card.WordCard(
@@ -251,7 +250,7 @@ class SpyMaster(tools.GameState):
             color[13]
         )
         word14.set_inactive(c.BLACK)
-        word14.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word14.set_capitane(c.BLACK, setup.SPRITES[word14.color])
         self.buttons["word14"] = word14
 
         word15 = word_card.WordCard(
@@ -265,7 +264,7 @@ class SpyMaster(tools.GameState):
             color[14]
         )
         word15.set_inactive(c.BLACK)
-        word15.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word15.set_capitane(c.BLACK, setup.SPRITES[word15.color])
         self.buttons["word15"] = word15
 
         word16 = word_card.WordCard(
@@ -279,7 +278,7 @@ class SpyMaster(tools.GameState):
             color[15]
         )
         word16.set_inactive(c.BLACK)
-        word16.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word16.set_capitane(c.BLACK, setup.SPRITES[word16.color])
         self.buttons["word16"] = word16
 
         word17 = word_card.WordCard(
@@ -293,7 +292,7 @@ class SpyMaster(tools.GameState):
             color[16]
         )
         word17.set_inactive(c.BLACK)
-        word17.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word17.set_capitane(c.BLACK, setup.SPRITES[word17.color])
         self.buttons["word17"] = word17
 
         word18 = word_card.WordCard(
@@ -307,7 +306,7 @@ class SpyMaster(tools.GameState):
             color[17]
         )
         word18.set_inactive(c.BLACK)
-        word18.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word18.set_capitane(c.BLACK, setup.SPRITES[word18.color])
         self.buttons["word18"] = word18
 
         word19 = word_card.WordCard(
@@ -321,7 +320,7 @@ class SpyMaster(tools.GameState):
             color[18]
         )
         word19.set_inactive(c.BLACK)
-        word19.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word19.set_capitane(c.BLACK, setup.SPRITES[word19.color])
         self.buttons["word19"] = word19
 
         word20 = word_card.WordCard(
@@ -335,8 +334,10 @@ class SpyMaster(tools.GameState):
             color[19]
         )
         word20.set_inactive(c.BLACK)
-        word20.set_active(c.BLACK, setup.SPRITES["button_active"])
+        word20.set_capitane(c.BLACK, setup.SPRITES[word20.color])
         self.buttons["word20"] = word20
+
+
 
 
 
