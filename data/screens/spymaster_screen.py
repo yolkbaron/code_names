@@ -67,7 +67,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[0]
         )
-        word1.set_inactive(c.BLACK)
+        word1.capitane = True
         word1.set_capitane(c.BLACK, setup.SPRITES[word1.color])
         self.buttons["word1"] = word1
 
@@ -81,7 +81,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[1]
         )
-        word2.set_inactive(c.BLACK)
+        word2.capitane = True
         word2.set_capitane(c.BLACK, setup.SPRITES[word2.color])
         self.buttons["word2"] = word2
 
@@ -95,7 +95,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[2]
         )
-        word3.set_inactive(c.BLACK)
+        word3.capitane = True
         word3.set_capitane(c.BLACK, setup.SPRITES[word3.color])
         self.buttons["word3"] = word3
 
@@ -109,7 +109,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[3]
         )
-        word4.set_inactive(c.BLACK)
+        word4.capitane = True
         word4.set_capitane(c.BLACK, setup.SPRITES[word4.color])
         self.buttons["word4"] = word4
 
@@ -123,7 +123,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[4]
         )
-        word5.set_inactive(c.BLACK)
+        word5.capitane = True
         word5.set_capitane(c.BLACK, setup.SPRITES[word5.color])
         self.buttons["word5"] = word5
 
@@ -137,7 +137,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[5]
         )
-        word6.set_inactive(c.BLACK)
+        word6.capitane = True
         word6.set_capitane(c.BLACK, setup.SPRITES[word6.color])
         self.buttons["word6"] = word6
 
@@ -151,7 +151,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[6]
         )
-        word7.set_inactive(c.BLACK)
+        word7.capitane = True
         word7.set_capitane(c.BLACK, setup.SPRITES[word7.color])
         self.buttons["word7"] = word7
 
@@ -165,7 +165,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[7]
         )
-        word8.set_inactive(c.BLACK)
+        word8.capitane = True
         word8.set_capitane(c.BLACK, setup.SPRITES[word8.color])
         self.buttons["word8"] = word8
 
@@ -179,7 +179,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[8]
         )
-        word9.set_inactive(c.BLACK)
+        word9.capitane = True
         word9.set_capitane(c.BLACK, setup.SPRITES[word9.color])
         self.buttons["word9"] = word9
 
@@ -193,7 +193,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[9]
         )
-        word10.set_inactive(c.BLACK)
+        word10.capitane = True
         word10.set_capitane(c.BLACK, setup.SPRITES[word10.color])
         self.buttons["word10"] = word10
 
@@ -207,7 +207,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[10]
         )
-        word11.set_inactive(c.BLACK)
+        word11.capitane = True
         word11.set_capitane(c.BLACK, setup.SPRITES[word11.color])
         self.buttons["word11"] = word11
 
@@ -221,7 +221,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[11]
         )
-        word12.set_inactive(c.BLACK)
+        word12.capitane = True
         word12.set_capitane(c.BLACK, setup.SPRITES[word12.color])
         self.buttons["word12"] = word12
 
@@ -235,7 +235,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[12]
         )
-        word13.set_inactive(c.BLACK)
+        word13.capitane = True
         word13.set_capitane(c.BLACK, setup.SPRITES[word13.color])
         self.buttons["word13"] = word13
 
@@ -249,7 +249,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[13]
         )
-        word14.set_inactive(c.BLACK)
+        word14.capitane = True
         word14.set_capitane(c.BLACK, setup.SPRITES[word14.color])
         self.buttons["word14"] = word14
 
@@ -263,7 +263,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[14]
         )
-        word15.set_inactive(c.BLACK)
+        word15.capitane = True
         word15.set_capitane(c.BLACK, setup.SPRITES[word15.color])
         self.buttons["word15"] = word15
 
@@ -277,7 +277,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[15]
         )
-        word16.set_inactive(c.BLACK)
+        word16.capitane = True
         word16.set_capitane(c.BLACK, setup.SPRITES[word16.color])
         self.buttons["word16"] = word16
 
@@ -291,7 +291,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[16]
         )
-        word17.set_inactive(c.BLACK)
+        word17.capitane = True
         word17.set_capitane(c.BLACK, setup.SPRITES[word17.color])
         self.buttons["word17"] = word17
 
@@ -305,7 +305,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[17]
         )
-        word18.set_inactive(c.BLACK)
+        word18.capitane = True
         word18.set_capitane(c.BLACK, setup.SPRITES[word18.color])
         self.buttons["word18"] = word18
 
@@ -319,7 +319,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[18]
         )
-        word19.set_inactive(c.BLACK)
+        word19.capitane = True
         word19.set_capitane(c.BLACK, setup.SPRITES[word19.color])
         self.buttons["word19"] = word19
 
@@ -333,7 +333,7 @@ class SpyMaster(tools.GameState):
             "Bullpen3D",
             color[19]
         )
-        word20.set_inactive(c.BLACK)
+        word20.capitane = True
         word20.set_capitane(c.BLACK, setup.SPRITES[word20.color])
         self.buttons["word20"] = word20
 
