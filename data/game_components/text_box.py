@@ -8,7 +8,6 @@ class InputBox(button.Button):
     def __init__(self, x, y, width, height, text_color, text_size, font_name, text=''):
         button.Button.__init__(self, x, y, width, height, text, text_size, font_name)
         self.text_color = text_color
-        print(type(self.font))
         self.txt_surface = self.font.render(text, True, self.text_color)
         self.active = False
         self.COLOR_INACTIVE = pg.Color('lightskyblue3')

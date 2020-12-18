@@ -114,7 +114,6 @@ class GameState(object):
                 elif event.key == pg.K_BACKSPACE:
                     self.text_boxes[key].text = self.text_boxes[key].text[:-1]
                 else:
-                    print(event)
                     self.text_boxes[key].text += event.unicode
                 self.text_boxes[key].txt_surface = self.text_boxes[key].font.render(self.text_boxes[key].text, True,
                                                                                     self.text_boxes[key].color)
