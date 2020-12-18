@@ -22,4 +22,5 @@ class InputBox(button.Button):
         # Blit the text.
         screen.blit(self.txt_surface, (self.x, self.y))
         # Blit the rect.
-        pg.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 2)
+        if self.color:
+            pg.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 2)

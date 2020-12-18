@@ -40,7 +40,3 @@ class StartingScreen(tools.GameState):
         for key in self.text_boxes.keys():
             self.text_boxes[key].update()
             self.text_boxes[key].draw(surface)
-
-
-
-
