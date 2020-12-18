@@ -65,8 +65,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[0]
         )
-        word1.set_inactive(c.WHITE)
-        word1.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word1.set_inactive(c.BLACK)
+        word1.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word1"] = word1
 
         word2 = word_card.WordCard(
@@ -79,8 +79,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[1]
         )
-        word2.set_inactive(c.WHITE)
-        word2.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word2.set_inactive(c.BLACK)
+        word2.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word2"] = word2
 
         word3 = word_card.WordCard(
@@ -93,8 +93,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[2]
         )
-        word3.set_inactive(c.WHITE)
-        word3.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word3.set_inactive(c.BLACK)
+        word3.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word3"] = word3
 
         word4 = word_card.WordCard(
@@ -107,8 +107,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[3]
         )
-        word4.set_inactive(c.WHITE)
-        word4.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word4.set_inactive(c.BLACK)
+        word4.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word4"] = word4
 
         word5 = word_card.WordCard(
@@ -121,8 +121,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[4]
         )
-        word5.set_inactive(c.WHITE)
-        word5.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word5.set_inactive(c.BLACK)
+        word5.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word5"] = word5
 
         word6 = word_card.WordCard(
@@ -135,8 +135,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[5]
         )
-        word6.set_inactive(c.WHITE)
-        word6.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word6.set_inactive(c.BLACK)
+        word6.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word6"] = word6
 
         word7 = word_card.WordCard(
@@ -149,8 +149,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[6]
         )
-        word7.set_inactive(c.WHITE)
-        word7.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word7.set_inactive(c.BLACK)
+        word7.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word7"] = word7
 
         word8 = word_card.WordCard(
@@ -163,8 +163,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[7]
         )
-        word8.set_inactive(c.WHITE)
-        word8.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word8.set_inactive(c.BLACK)
+        word8.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word8"] = word8
 
         word9 = word_card.WordCard(
@@ -177,8 +177,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[8]
         )
-        word9.set_inactive(c.WHITE)
-        word9.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word9.set_inactive(c.BLACK)
+        word9.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word9"] = word9
 
         word10 = word_card.WordCard(
@@ -191,8 +191,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[9]
         )
-        word10.set_inactive(c.WHITE)
-        word10.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word10.set_inactive(c.BLACK)
+        word10.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word10"] = word10
 
         word11 = word_card.WordCard(
@@ -205,8 +205,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[10]
         )
-        word11.set_inactive(c.WHITE)
-        word11.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word11.set_inactive(c.BLACK)
+        word11.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word11"] = word11
 
         word12 = word_card.WordCard(
@@ -219,8 +219,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[11]
         )
-        word12.set_inactive(c.WHITE)
-        word12.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word12.set_inactive(c.BLACK)
+        word12.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word12"] = word12
 
         word13 = word_card.WordCard(
@@ -233,8 +233,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[12]
         )
-        word13.set_inactive(c.WHITE)
-        word13.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word13.set_inactive(c.BLACK)
+        word13.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word13"] = word13
 
         word14 = word_card.WordCard(
@@ -247,8 +247,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[13]
         )
-        word14.set_inactive(c.WHITE)
-        word14.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word14.set_inactive(c.BLACK)
+        word14.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word14"] = word14
 
         word15 = word_card.WordCard(
@@ -261,8 +261,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[14]
         )
-        word15.set_inactive(c.WHITE)
-        word15.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word15.set_inactive(c.BLACK)
+        word15.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word15"] = word15
 
         word16 = word_card.WordCard(
@@ -275,8 +275,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[15]
         )
-        word16.set_inactive(c.WHITE)
-        word16.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word16.set_inactive(c.BLACK)
+        word16.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word16"] = word16
 
         word17 = word_card.WordCard(
@@ -289,8 +289,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[16]
         )
-        word17.set_inactive(c.WHITE)
-        word17.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word17.set_inactive(c.BLACK)
+        word17.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word17"] = word17
 
         word18 = word_card.WordCard(
@@ -303,8 +303,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[17]
         )
-        word18.set_inactive(c.WHITE)
-        word18.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word18.set_inactive(c.BLACK)
+        word18.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word18"] = word18
 
         word19 = word_card.WordCard(
@@ -317,8 +317,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[18]
         )
-        word19.set_inactive(c.WHITE)
-        word19.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word19.set_inactive(c.BLACK)
+        word19.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word19"] = word19
 
         word20 = word_card.WordCard(
@@ -331,8 +331,8 @@ class SpyMaster(tools.GameState):
             "top secret text",
             color[19]
         )
-        word20.set_inactive(c.WHITE)
-        word20.set_active(c.WHITE, setup.SPRITES["button_active"])
+        word20.set_inactive(c.BLACK)
+        word20.set_active(c.BLACK, setup.SPRITES["button_active"])
         self.buttons["word20"] = word20
 
     def update(self, surface, keys, mouse, current_time):
