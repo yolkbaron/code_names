@@ -146,6 +146,8 @@ class GameState(object):
             next = constants.SPYMASTER
         if self.name == constants.SPYMASTER:
             next = constants.FIELD_OPERATIVE
+        if self.name == constants.FIELD_OPERATIVE:
+            next = constants.SPYMASTER
         return next
 
 

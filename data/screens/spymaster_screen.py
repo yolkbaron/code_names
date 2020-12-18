@@ -22,6 +22,7 @@ class SpyMaster(tools.GameState):
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
+        self.next = self.get_next_screen()
 
         self.set_background()
         self.set_buttons()

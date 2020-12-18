@@ -10,7 +10,15 @@ class StartingScreen(tools.GameState):
     def __init__(self):
         tools.GameState.__init__(self)
         self.name = c.STARTING_SCREEN
-        game_info = {}
+        game_info = {
+            c.TEAM1_SCORE: 0,
+            c.TEAM2_SCORE: 0,
+            c.TEAM1_SPY: None,
+            c.TEAM1_OPERATIVE1: None,
+            c.TEAM1_OPERATIVE2: None,
+            c.TEAM2_OPERATIVE1: None,
+            c.TEAM2_OPERATIVE2: None
+        }
         self.start(0.0, game_info)
         self.fonts = setup.FONTS
 
