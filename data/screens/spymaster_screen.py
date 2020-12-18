@@ -24,11 +24,8 @@ class SpyMaster(tools.GameState):
         self.set_buttons()
 
     def set_background(self):
-        self.background = setup.SPRITES["background"]
-        font = pg.font.Font(setup.FONTS["Marlboro"], int(300 * self.multiplier))
-        title = font.render("CODE NAMES", True, c.GOLD)
+        self.background = setup.SPRITES["background2"]
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
-        self.background.blit(title, (int(80 * self.multiplier), int(80 * self.multiplier)))
 
     def set_buttons(self):
         word1 = button.Button(
