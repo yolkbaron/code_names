@@ -55,7 +55,6 @@ class SpyMaster(tools.GameState):
             color.remove(i)
             color.insert(i, "white")
         color[all[0]] = "black"
-        print(color)
 
 
 
@@ -66,7 +65,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[0],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[0]
         )
         word1.set_inactive(c.WHITE)
         word1.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -79,7 +79,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[1],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[1]
         )
         word2.set_inactive(c.WHITE)
         word2.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -92,7 +93,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[2],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[2]
         )
         word3.set_inactive(c.WHITE)
         word3.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -105,7 +107,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[3],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[3]
         )
         word4.set_inactive(c.WHITE)
         word4.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -118,7 +121,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[4],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[4]
         )
         word5.set_inactive(c.WHITE)
         word5.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -131,7 +135,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[5],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[5]
         )
         word6.set_inactive(c.WHITE)
         word6.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -144,7 +149,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[6],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[6]
         )
         word7.set_inactive(c.WHITE)
         word7.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -157,7 +163,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[7],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[7]
         )
         word8.set_inactive(c.WHITE)
         word8.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -170,7 +177,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[8],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[8]
         )
         word9.set_inactive(c.WHITE)
         word9.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -183,7 +191,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[9],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[9]
         )
         word10.set_inactive(c.WHITE)
         word10.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -196,7 +205,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[10],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[10]
         )
         word11.set_inactive(c.WHITE)
         word11.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -209,7 +219,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[11],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[11]
         )
         word12.set_inactive(c.WHITE)
         word12.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -222,7 +233,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[12],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[12]
         )
         word13.set_inactive(c.WHITE)
         word13.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -235,7 +247,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[13],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[13]
         )
         word14.set_inactive(c.WHITE)
         word14.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -248,7 +261,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[14],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[14]
         )
         word15.set_inactive(c.WHITE)
         word15.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -261,7 +275,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[15],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[15]
         )
         word16.set_inactive(c.WHITE)
         word16.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -274,7 +289,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[16],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[16]
         )
         word17.set_inactive(c.WHITE)
         word17.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -287,7 +303,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[17],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[17]
         )
         word18.set_inactive(c.WHITE)
         word18.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -300,7 +317,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[18],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[18]
         )
         word19.set_inactive(c.WHITE)
         word19.set_active(c.WHITE, setup.SPRITES["button_active"])
@@ -313,7 +331,8 @@ class SpyMaster(tools.GameState):
             int(150 * self.multiplier),
             words[19],
             int(50 * self.multiplier),
-            "Bullpen3D"
+            "Bullpen3D",
+            color[19]
         )
         word20.set_inactive(c.WHITE)
         word20.set_active(c.WHITE, setup.SPRITES["button_active"])
