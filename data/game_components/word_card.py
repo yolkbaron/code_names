@@ -74,7 +74,7 @@ class Word():
 
 class WordCard(button.Button):
     # TODO add sprite logic
-    def __init__(self, x, y, width, height, text, text_size, font_name):
+    def __init__(self, x, y, width, height, text, text_size, font_name, color):
         super(button.Button, self).__init__()
         self.x = x
         self.y = y
@@ -86,8 +86,22 @@ class WordCard(button.Button):
         self.active = False
         self.inactive_image = None
         self.active_image = None
+        self.color = color
         self.fonts = setup.FONTS
         self.font = pg.font.Font(self.fonts[font_name], self.text_size)
+
+    def set_default(self, text_color, button_image=None):
+        self.inactive_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_image:
+            button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
+            button_rect = button_image.get_rect()
+            button_rect.center = self.inactive_image.get_rect().center
+            self.inactive_image.blit(button_image, button_rect)
+        text_button = self.font.render(self.text, True, text_color)
+        text_rect = text_button.get_rect()
+        text_rect.center = self.inactive_image.get_rect().center
+        self.inactive_image.blit(text_button, text_rect)
+
 
     def get_image(self, x, y, width, height):
         """

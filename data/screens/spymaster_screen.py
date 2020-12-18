@@ -37,6 +37,27 @@ class SpyMaster(tools.GameState):
         order = random.sample(range(0, 187), 20)
         for i in order:
             words.append(all_words[i])
+        all = list(range(20))
+        color = list(range(20))
+        blue = random.sample(range(0, 20), 6)
+        for i in blue:
+            all.remove(i)
+            color.remove(i)
+            color.insert(i, "blue")
+        rad = random.sample(all, 7)
+        for i in rad:
+            all.remove(i)
+            color.remove(i)
+            color.insert(i, "rad")
+        white = random.sample(all, 6)
+        for i in white:
+            all.remove(i)
+            color.remove(i)
+            color.insert(i, "white")
+        color[all[0]] = "black"
+        print(color)
+
+
 
         word1 = word_card.WordCard(
             int(150 * self.multiplier),
