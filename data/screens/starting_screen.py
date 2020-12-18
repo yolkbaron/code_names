@@ -1,4 +1,6 @@
 import pygame as pg
+from ..game_components import button
+from ..game_components import text_bocks
 from .. import setup, tools
 from .. import constants as c
 
@@ -8,40 +10,42 @@ class StartingScreen(tools.GameState):
     def __init__(self):
         tools.GameState.__init__(self)
         self.name = c.STARTING_SCREEN
-        self.quit = False
         game_info = {}
         self.start(0.0, game_info)
+        self.fonts = setup.FONTS
 
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
 
         self.set_background()
-        self.set_buttons()
+        self.set_textbocks()
 
     def set_background(self):
         self.background = setup.SPRITES["background"]
-        self.background_rect = self.background.get_rect()
-
+        font = pg.font.Font(setup.FONTS["Marlboro"], int(300 * self.multiplier))
+        title = font.render("CODE NAMES", True, c.GOLD)
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(title, (int(80 * self.multiplier), int(80 * self.multiplier)))
 
-    def set_buttons(self):
-        self.buttons = {}
+    def set_textbocks(self):
+        input_box1 = text_bocks.InputBox(100, 100, 140, 32, c.RED, None)
+        input_box2 = text_bocks.InputBox(100, 300, 140, 32, c.BLUE, None)
+        self.input_boxes = [input_box1, input_box2]
 
-    def update(self, surface, keys, current_time):
+    def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
+        self.cursor_pos = pg.mouse.get_pos()
+        for event in pg.event.get():
+            for box in self.input_boxes:
+                box.handle_event(event)
 
-        """self.screen = pg.display.set_mode((1000, 1000))  # FIXME screen size is in constants
-        f1 = pg.font.Font(None, 80)
-        f2 = pg.font.Font(None, 50)
-        text1 = f1.render('Приветствую вас странники!', True, c.RED)
-        text2 = f2.render('Если ты хотел сыграть в CodeNames,', True, c.RED)
-        text3 = f2.render('то ты попал прямо по адресу.', True, c.RED)
-        text4 = f2.render('Для начала игры ознакомтесь с инсрукцией.', True, c.RED)
-        text5 = f2.render('Теперь смело жми на старт!', True, c.RED)
-        self.screen.blit(text1, (120, 100))  # FIXME
-        self.screen.blit(text2, (200, 200))  # FIXME
-        self.screen.blit(text3, (260, 250))  # FIXME
-        self.screen.blit(text4, (130, 500))  # FIXME
-        self.screen.blit(text5, (260, 550))  # FIXME"""
+        for box in self.input_boxes:
+            box.update()
+
+        for box in self.input_boxes:
+            box.draw(surface)
+
+
+
 
