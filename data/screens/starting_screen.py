@@ -28,7 +28,7 @@ class StartingScreen(tools.GameState):
     def set_buttons(self):
         self.buttons = {}
 
-    def update(self, surface, keys, current_time):
+    def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
 
         """self.screen = pg.display.set_mode((1000, 1000))  # FIXME screen size is in constants
