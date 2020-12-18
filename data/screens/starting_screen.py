@@ -32,20 +32,20 @@ class StartingScreen(tools.GameState):
 
     def set_buttons(self):
         start_button = button.Button(
-            int(450 * self.multiplier),
-            int(400 * self.multiplier),
-            int(400 * self.multiplier),
+            int(960 * self.multiplier),
+            int(800 * self.multiplier),
+            int(600 * self.multiplier),
             int(200 * self.multiplier),
-            "Start",
+            "START",
             int(150 * self.multiplier),
-            "Bullpen3D"
+            "top secret text"
         )
         start_button.set_inactive(c.WHITE)
-        start_button.set_active(c.WHITE, setup.SPRITES["button_active"])
+        start_button.set_active(c.RED)
         self.buttons["start"] = start_button
 
     def set_textboxes(self):
-        spy1 = text_box.InputBox(0, 0, 200, 200, c.WHITE, 50, "Bullpen3D")
+        spy1 = text_box.InputBox(0, 0, 200, 200, c.WHITE, 50, "top secret text")
         self.text_boxes["spy_1"] = spy1
 
     def update(self, surface, keys, mouse, current_time):
