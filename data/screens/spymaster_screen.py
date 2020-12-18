@@ -2,6 +2,7 @@ import pygame as pg
 from ..game_components import button
 from .. import setup, tools
 from .. import constants as c
+import random
 
 class SpyMaster(tools.GameState):
     """
@@ -15,6 +16,9 @@ class SpyMaster(tools.GameState):
         self.start(0.0, game_info)
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
+
+
+
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -31,12 +35,19 @@ class SpyMaster(tools.GameState):
         self.background.blit(title, (int(80 * self.multiplier), int(80 * self.multiplier)))
 
     def set_buttons(self):
+        all_words = setup.WORDS["words_list"]
+        words = []
+        order = random.sample(range(0, 187), 20)
+        for i in order:
+            words.append(all_words[i])
+        print(words)
+
         word1 = button.Button(
             int(150 * self.multiplier),
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word1",
+            words[0],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -49,7 +60,7 @@ class SpyMaster(tools.GameState):
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word2",
+            words[1],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -62,7 +73,7 @@ class SpyMaster(tools.GameState):
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word3",
+            words[2],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -75,7 +86,7 @@ class SpyMaster(tools.GameState):
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word4",
+            words[3],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -88,7 +99,7 @@ class SpyMaster(tools.GameState):
             int(300 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word5",
+            words[4],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -101,7 +112,7 @@ class SpyMaster(tools.GameState):
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word6",
+            words[5],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -114,7 +125,7 @@ class SpyMaster(tools.GameState):
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word2",
+            words[6],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -127,7 +138,7 @@ class SpyMaster(tools.GameState):
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word8",
+            words[7],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -140,7 +151,7 @@ class SpyMaster(tools.GameState):
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word9",
+            words[8],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -153,7 +164,7 @@ class SpyMaster(tools.GameState):
             int(460 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word10",
+            words[9],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -166,7 +177,7 @@ class SpyMaster(tools.GameState):
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word11",
+            words[10],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -179,7 +190,7 @@ class SpyMaster(tools.GameState):
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word12",
+            words[11],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -192,7 +203,7 @@ class SpyMaster(tools.GameState):
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word13",
+            words[12],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -205,7 +216,7 @@ class SpyMaster(tools.GameState):
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word14",
+            words[13],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -218,7 +229,7 @@ class SpyMaster(tools.GameState):
             int(620 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word15",
+            words[14],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -231,7 +242,7 @@ class SpyMaster(tools.GameState):
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word16",
+            words[15],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -244,7 +255,7 @@ class SpyMaster(tools.GameState):
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word17",
+            words[16],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -257,7 +268,7 @@ class SpyMaster(tools.GameState):
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word18",
+            words[17],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -270,7 +281,7 @@ class SpyMaster(tools.GameState):
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word19",
+            words[18],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
@@ -283,7 +294,7 @@ class SpyMaster(tools.GameState):
             int(780 * self.multiplier),
             int(300 * self.multiplier),
             int(150 * self.multiplier),
-            "word20",
+            words[19],
             int(50 * self.multiplier),
             "Bullpen3D"
         )
