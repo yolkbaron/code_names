@@ -74,9 +74,20 @@ class Word():
 
 class WordCard(button.Button):
     # TODO add sprite logic
-    def __init__(self, word):
-        button.Button.__init__(self)
-        self.word = word  # Word class
+    def __init__(self, x, y, width, height, text, text_size, font_name):
+        super(button.Button, self).__init__()
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
+        self.text = text
+        self.text_size = text_size
+        self.pressed = False
+        self.active = False
+        self.inactive_image = None
+        self.active_image = None
+        self.fonts = setup.FONTS
+        self.font = pg.font.Font(self.fonts[font_name], self.text_size)
 
     def get_image(self, x, y, width, height):
         """
@@ -86,10 +97,4 @@ class WordCard(button.Button):
         # TODO
         pass
 
-    def draw(self):
-        """
-        Draws a card and word on this card
-        :return:
-        """
-        # TODO
-        pass
+
