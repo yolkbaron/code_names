@@ -28,7 +28,7 @@ class SpyMaster(tools.GameState):
         self.set_buttons()
 
     def set_background(self):
-        self.background = setup.SPRITES["background2"]
+        self.background = setup.SPRITES["background3"]
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_buttons(self):
