@@ -92,7 +92,11 @@ class SpyMaster(tools.GameState):
 
     def buttons_processing(self):
         for key in self.buttons.keys():
+            if self.buttons[key].check_crossing(self.cursor_pos):
+                self.buttons[key].active = True
+            else:
+                self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "exit":
-                    self.quit = True
+                if key == "next":
+                    self.done = True
