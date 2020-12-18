@@ -50,9 +50,9 @@ class Game(object):
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.done = True
-            elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.MOUSEBUTTONUP:
+            elif event.type == pg.MOUSEBUTTONDOWN:
                 self.state.mouse_button_pressed(event)
-            elif event.type == pg.KEYDOWN or event.type == pg.KEYUP:
+            elif event.type == pg.KEYDOWN:
                 self.state.key_pressed(event)
 
     def main_loop(self):
@@ -114,8 +114,9 @@ class GameState(object):
                 elif event.key == pg.K_BACKSPACE:
                     self.text_boxes[key].text = self.text_boxes[key].text[:-1]
                 else:
+                    print(event)
                     self.text_boxes[key].text += event.unicode
-                self.text_boxes[key].txt_surface = self.text_boxes[key].FONT.render(self.text_boxes[key].text, True,
+                self.text_boxes[key].txt_surface = self.text_boxes[key].font.render(self.text_boxes[key].text, True,
                                                                                     self.text_boxes[key].color)
 
     def update(self, surface, keys, mouse, current_time):

@@ -19,7 +19,7 @@ class Button(object):
         self.inactive_image = None
         self.active_image = None
         self.fonts = setup.FONTS
-        self.font_name = self.fonts[font_name]
+        self.font = pg.font.Font(self.fonts[font_name], self.text_size)
 
     def set_inactive(self, text_color, button_image=None):
         """
@@ -34,8 +34,7 @@ class Button(object):
             button_rect = button_image.get_rect()
             button_rect.center = self.inactive_image.get_rect().center
             self.inactive_image.blit(button_image, button_rect)
-        font = pg.font.Font(self.font_name, self.text_size)
-        text_button = font.render(self.text, True, text_color)
+        text_button = self.font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
         text_rect.center = self.inactive_image.get_rect().center
         self.inactive_image.blit(text_button, text_rect)
@@ -53,8 +52,7 @@ class Button(object):
             button_rect = button_image.get_rect()
             button_rect.center = self.active_image.get_rect().center
             self.active_image.blit(button_image, button_rect)
-        font = pg.font.Font(self.font_name, self.text_size)
-        text_button = font.render(self.text, True, text_color)
+        text_button = self.font.render(self.text, True, text_color)
         text_rect = text_button.get_rect()
         text_rect.center = self.active_image.get_rect().center
         self.active_image.blit(text_button, text_rect)

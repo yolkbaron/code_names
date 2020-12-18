@@ -1,8 +1,8 @@
 import pygame as pg
 from ..game_components import button
-from ..game_components import text_bocks
 from .. import setup, tools
 from .. import constants as c
+from ..game_components import text_box
 
 
 class StartingScreen(tools.GameState):
@@ -20,7 +20,7 @@ class StartingScreen(tools.GameState):
         self.next = self.get_next_screen()
 
         self.set_background()
-        self.set_textbocks()
+        self.set_textboxes()
 
     def set_background(self):
         self.background = setup.SPRITES["background"]
@@ -29,8 +29,9 @@ class StartingScreen(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
         self.background.blit(title, (int(80 * self.multiplier), int(80 * self.multiplier)))
 
-    def set_textbocks(self):
-        pass
+    def set_textboxes(self):
+        spy1 = text_box.InputBox(0, 0, 200, 200, c.WHITE, 50, "Bullpen3D")
+        self.text_boxes["spy_1"] = spy1
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
@@ -38,7 +39,7 @@ class StartingScreen(tools.GameState):
 
         for key in self.text_boxes.keys():
             self.text_boxes[key].update()
-            self.text_boxes[key].draw()
+            self.text_boxes[key].draw(surface)
 
 
 
