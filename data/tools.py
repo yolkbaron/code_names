@@ -92,6 +92,7 @@ class GameState(object):
         self.quit = False
         self.game_info = {}
         self.buttons = {}
+        self.cards = {}
         self.text_boxes = {}
         self.cursor_pos = pg.mouse.get_pos()
 
@@ -100,6 +101,9 @@ class GameState(object):
             for key in self.buttons.keys():
                 if self.buttons[key].check_crossing(self.cursor_pos):
                     self.buttons[key].pressed = True
+            for key in self.cards.keys():
+                if self.cards[key].check_crossing(self.cursor_pos):
+                    self.cards[key].pressed = True
             for key in self.text_boxes.keys():
                 if self.text_boxes[key].check_crossing(self.cursor_pos):
                     self.text_boxes[key].active = True
