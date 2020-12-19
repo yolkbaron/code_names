@@ -104,7 +104,19 @@ class WordCard(button.Button):
         text_rect.center = self.capitane_image.get_rect().center
         self.capitane_image.blit(text_button, text_rect)
 
-    def set_inactive(self, text_color, button_image=None):
+    def set_default(self, text_color, button_image=None):
+        self.inactive_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
+        if button_image:
+            button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
+            button_rect = button_image.get_rect()
+            button_rect.center = self.inactive_image.get_rect().center
+            self.inactive_image.blit(button_image, button_rect)
+        text_button = self.font.render(self.text, True, text_color)
+        text_rect = text_button.get_rect()
+        text_rect.center = self.inactive_image.get_rect().center
+        self.inactive_image.blit(text_button, text_rect)
+
+    def set_pressed(self, text_color, button_image=None):
         self.inactive_image = pg.Surface((self.width, self.height), flags=pg.SRCALPHA)
         if button_image:
             button_image = pg.transform.scale(button_image, (self.width, int(self.height)))
