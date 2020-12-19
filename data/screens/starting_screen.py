@@ -10,16 +10,6 @@ class StartingScreen(tools.GameState):
     def __init__(self):
         tools.GameState.__init__(self)
         self.name = c.STARTING_SCREEN
-        game_info = {
-            c.TEAM1_SCORE: 0,
-            c.TEAM2_SCORE: 0,
-            c.TEAM1_SPY: None,
-            c.TEAM1_OPERATIVE1: None,
-            c.TEAM1_OPERATIVE2: None,
-            c.TEAM2_OPERATIVE1: None,
-            c.TEAM2_OPERATIVE2: None
-        }
-        self.start(0.0, game_info)
         self.fonts = setup.FONTS
 
     def start(self, current_time, game_info):
@@ -55,12 +45,59 @@ class StartingScreen(tools.GameState):
         self.buttons["start"] = start_button
 
     def set_textboxes(self):
-        spy1 = text_box.InputBox(220, 435, 500, 100, c.BLUE, 100, "top secret text")
-        spy2 = text_box.InputBox(1100, 250, 500, 100, c.RED, 100, "top secret text")
-        team1_operative1 = text_box.InputBox(220, 555, 500, 100, c.BLUE, 100, "top secret text")
-        team2_operative1 = text_box.InputBox(1100, 370, 500, 100, c.RED, 100, "top secret text")
-        team1_operative2 = text_box.InputBox(220, 675, 500, 100, c.BLUE, 100, "top secret text")
-        team2_operative2 = text_box.InputBox(1100, 490, 500, 100, c.RED, 100, "top secret text")
+        spy1 = text_box.InputBox(
+            int(220*self.multiplier),
+            int(435*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.BLUE, int(100*self.multiplier),
+            "top secret text"
+        )
+        spy2 = text_box.InputBox(
+            int(1100*self.multiplier),
+            int(250*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.RED,
+            int(100*self.multiplier),
+            "top secret text"
+        )
+        team1_operative1 = text_box.InputBox(
+            int(220*self.multiplier),
+            int(555*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.BLUE,
+            int(100*self.multiplier),
+            "top secret text"
+        )
+        team2_operative1 = text_box.InputBox(
+            int(1100*self.multiplier),
+            int(370*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.RED,
+            int(100*self.multiplier),
+            "top secret text"
+        )
+        team1_operative2 = text_box.InputBox(
+            int(220*self.multiplier),
+            int(675*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.BLUE,
+            int(100*self.multiplier),
+            "top secret text"
+        )
+        team2_operative2 = text_box.InputBox(
+            int(1100*self.multiplier),
+            int(490*self.multiplier),
+            int(500*self.multiplier),
+            int(100*self.multiplier),
+            c.RED,
+            int(100*self.multiplier),
+            "top secret text"
+        )
         self.text_boxes["team1_spy"] = spy1
         self.text_boxes["team2_spy"] = spy2
         self.text_boxes["team1_operative1"] = team1_operative1
@@ -71,22 +108,66 @@ class StartingScreen(tools.GameState):
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
         self.cursor_pos = pg.mouse.get_pos()
-        self.update_text_boxes(surface)
-        self.update_buttons(surface)
+        self.update_text_boxes()
+        self.update_buttons()
 
-    def update_text_boxes(self, surface):
+        self.update_spy()
+        self.update_operative()
+
+        self.draw_buttons(surface)
+        self.draw_text_boxes(surface)
+
+    def update_text_boxes(self):
         for key in self.text_boxes.keys():
             self.text_boxes[key].update()
-            self.text_boxes[key].draw(surface)
 
-    def update_buttons(self, surface):
+    def update_buttons(self):
         for key in self.buttons.keys():
-            if self.buttons[key].check_crossing(self.cursor_pos):
+            if self.buttons[key].check_crossing(self.cursor_pos) and self.game_info[c.TEAM1].is_complete() and self.game_info[c.TEAM2].is_complete():
                 self.buttons[key].active = True
             else:
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "start":
+                if key == "start" and self.game_info[c.TEAM1].is_complete() and self.game_info[c.TEAM2].is_complete():
                     self.done = True
+
+    def draw_buttons(self, surface):
+        for key in self.buttons.keys():
             self.buttons[key].draw(surface)
+
+    def draw_text_boxes(self, surface):
+        for key in self.text_boxes.keys():
+            self.text_boxes[key].draw(surface)
+
+    def update_spy(self):
+        if len(self.text_boxes["team1_spy"].text) > 0:
+            self.game_info[c.TEAM1].set_spy(self.text_boxes["team1_spy"].text)
+        else:
+            self.game_info[c.TEAM1].set_spy(None)
+
+        if len(self.text_boxes["team2_spy"].text) > 0:
+            self.game_info[c.TEAM2].set_spy(self.text_boxes["team2_spy"].text)
+        else:
+            self.game_info[c.TEAM2].set_spy(None)
+
+    def update_operative(self):
+        if len(self.text_boxes["team1_operative1"].text) > 0:
+            self.game_info[c.TEAM1].set_operative(self.text_boxes["team1_operative1"].text, 0)
+            self.game_info[c.TEAM1].set_operative(self.text_boxes["team1_operative2"].text, 1)
+        elif len(self.text_boxes["team1_operative2"].text) > 0:
+            self.game_info[c.TEAM1].set_operative(self.text_boxes["team1_operative2"].text, 0)
+            self.game_info[c.TEAM1].set_operative(None, 1)
+        else:
+            self.game_info[c.TEAM1].set_operative(None, 0)
+            self.game_info[c.TEAM1].set_operative(None, 1)
+
+        if len(self.text_boxes["team2_operative1"].text) > 0:
+            self.game_info[c.TEAM2].set_operative(self.text_boxes["team2_operative1"].text, 0)
+            self.game_info[c.TEAM2].set_operative(self.text_boxes["team2_operative2"].text, 1)
+        elif len(self.text_boxes["team2_operative2"].text) > 0:
+            self.game_info[c.TEAM2].set_operative(self.text_boxes["team2_operative2"].text, 0)
+            self.game_info[c.TEAM2].set_operative(None, 1)
+        else:
+            self.game_info[c.TEAM2].set_operative(None, 0)
+            self.game_info[c.TEAM2].set_operative(None, 1)

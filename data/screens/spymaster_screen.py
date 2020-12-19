@@ -14,8 +14,6 @@ class SpyMaster(tools.GameState):
     def __init__(self):
         tools.GameState.__init__(self)
         self.name = c.SPYMASTER
-        game_info = {}
-        self.start(0.0, game_info)
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
 

@@ -53,14 +53,10 @@ SPYMASTER = 'spymaster'
 STARTING_SCREEN = 'starting screen'
 
 # Game info dictionary keys
-TEAM1_SCORE = '1 team score'
-TEAM2_SCORE = '2 team score'
-TEAM1_SPY = '1 team spy'
-TEAM2_SPY = '2 team spy'
-TEAM1_OPERATIVE1 = '1 team operative 1'
-TEAM2_OPERATIVE1 = '2 team operative 1'
-TEAM1_OPERATIVE2 = '1 team operative 2'
-TEAM2_OPERATIVE2 = '2 team operative 2'
+TEAM1 = 'first team'
+TEAM2 = 'second team'
+CURRENT_TIME = 'current time'
+GAME_OVER = 'game over'
 
 # Sound states
 # TODO

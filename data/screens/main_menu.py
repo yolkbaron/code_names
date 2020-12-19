@@ -2,6 +2,7 @@ import pygame as pg
 from ..game_components import button
 from .. import setup, tools
 from .. import constants as c
+from ..game_components import player_module
 
 
 class MainMenu(tools.GameState):
@@ -12,7 +13,14 @@ class MainMenu(tools.GameState):
     def __init__(self):
         tools.GameState.__init__(self)
         self.name = c.MAIN_MENU
-        game_info = {}
+        team1 = player_module.Team("blue")
+        team2 = player_module.Team("red")
+        game_info = {
+            c.TEAM1: team1,
+            c.TEAM2: team2,
+            c.CURRENT_TIME: None,
+            c.GAME_OVER: False
+        }
         self.start(0.0, game_info)
         self.fonts = setup.FONTS
 

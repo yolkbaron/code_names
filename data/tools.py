@@ -12,14 +12,13 @@ class Game(object):
         self.caption = caption
         self.display = pg.display.get_surface()
         self.fps = constants.FPS
-        self.clock = pg.time.Clock()
         self.done = False
         self.current_time = 0.0
         self.state = None  # GameState
         self.screen_dict = {}
         self.screen_name = None
         self.keys = pg.key.get_pressed()  # List of all keys pressed
-        self.mouse = pg.mouse.get_pressed(3)
+        self.mouse_pressed = pg.mouse.get_pressed(3)
 
     def switch_state(self):
         """
@@ -27,8 +26,9 @@ class Game(object):
         :return: None
         """
         self.screen_name = self.state.next
+        game_info = self.state.finish()
         self.state = self.screen_dict[self.screen_name]
-        self.state.start(self.current_time, self.state.game_info)
+        self.state.start(self.current_time, game_info)
 
     def update(self):
         """
@@ -40,7 +40,7 @@ class Game(object):
             self.done = True
         elif self.state.done:
             self.switch_state()
-        self.state.update(self.display, self.keys, self.mouse, self.current_time)
+        self.state.update(self.display, self.keys, self.mouse_pressed, self.current_time)
 
     def event_loop(self):
         """
@@ -64,7 +64,6 @@ class Game(object):
             self.event_loop()
             self.update()
             pg.display.update()
-            self.clock.tick(self.fps)
         pg.quit()
 
     def set_screens(self, screen_dict, current_screen_name):
@@ -149,6 +148,10 @@ class GameState(object):
         if self.name == constants.FIELD_OPERATIVE:
             next = constants.SPYMASTER
         return next
+
+    def finish(self):
+        self.done = False
+        return self.game_info
 
 
 def load_all_words(directory, extensions='.txt'):
