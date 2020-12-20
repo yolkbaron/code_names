@@ -17,12 +17,9 @@ class InputBox(button.Button):
         self.max_length = max_length
 
     def update(self):
-        pass
         self.color = self.color_active if self.active else self.color_inactive
 
     def draw(self, screen):
-        # Blit the text.
         screen.blit(self.txt_surface, (self.x, self.y))
-        # Blit the rect.
         if self.color:
             pg.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 2)

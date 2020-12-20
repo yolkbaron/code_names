@@ -201,7 +201,7 @@ def generate_word_cards():
                 int(150 * c.MULTIPLIER),
                 types[5 * i + j],
                 words[5 * i + j].upper(),
-                int(50 * c.MULTIPLIER),
+                int(40 * c.MULTIPLIER),
                 "top secret text"
 
             )

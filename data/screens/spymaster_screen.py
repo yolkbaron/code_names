@@ -1,6 +1,7 @@
 import pygame as pg
 from ..game_components import button
 from ..game_components import word_card
+from ..game_components import text_box
 from .. import setup, tools
 from .. import constants as c
 import random
@@ -24,6 +25,7 @@ class SpyMaster(tools.GameState):
 
         self.set_background()
         self.set_buttons()
+        self.set_textboxes()
         self.set_cards()
 
     def set_background(self):
@@ -47,21 +49,30 @@ class SpyMaster(tools.GameState):
         end_turn_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["end turn"] = end_turn_button
 
+    def set_textboxes(self):
+        hint = text_box.InputBox(
+            int(0 * self.multiplier),
+            int(0 * self.multiplier),
+            int(100 * self.multiplier),
+            int(100 * self.multiplier),
+            c.BLUE,
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
+        )
+
+        self.text_boxes["hint"] = hint
+
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
         self.cursor_pos = pg.mouse.get_pos()
-        self.update_buttons()
-
-        for key in self.buttons.keys():
-            if self.buttons[key].check_crossing(self.cursor_pos):
-                self.buttons[key].active = True
-            else:
-                self.buttons[key].active = False
 
         self.update_buttons()
+        self.update_text_boxes()
         self.update_word_cards()
 
         self.draw_buttons(surface)
+        self.draw_text_boxes(surface)
         self.draw_word_cards(surface)
 
     def draw_buttons(self, surface):
@@ -71,6 +82,10 @@ class SpyMaster(tools.GameState):
     def draw_word_cards(self, surface):
         for i in range(20):
             self.word_cards[i].draw_spy_screen(surface)
+
+    def draw_text_boxes(self, surface):
+        for key in self.text_boxes.keys():
+            self.text_boxes[key].draw(surface)
 
     def update_buttons(self):
         for key in self.buttons.keys():
@@ -92,3 +107,7 @@ class SpyMaster(tools.GameState):
             if self.word_cards[i].pressed:
                 self.word_cards[i].pressed = False
             self.word_cards[i].update()
+
+    def update_text_boxes(self):
+        for key in self.text_boxes.keys():
+            self.text_boxes[key].update()
