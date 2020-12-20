@@ -1,6 +1,7 @@
 import pygame as pg
 from ..game_components import button
 from ..game_components import word_card
+from ..game_components import text_box
 from .. import setup, tools
 from .. import constants as c
 import random
@@ -56,6 +57,7 @@ class FieldOperative(tools.GameState):
 
         self.draw_buttons(surface)
         self.draw_word_cards(surface)
+        self.draw_text_boxes(surface)
 
     def draw_buttons(self, surface):
         for key in self.buttons.keys():
@@ -64,6 +66,9 @@ class FieldOperative(tools.GameState):
     def draw_word_cards(self, surface):
         for i in range(20):
             self.word_cards[i].draw_operative_screen(surface)
+
+    def draw_text_boxes(self, surface):
+        self.game_info[c.CLUE].draw(surface)
 
     def update_buttons(self):
         for key in self.buttons.keys():
