@@ -53,9 +53,9 @@ class SpyMaster(tools.GameState):
         hint = text_box.InputBox(
             int(0 * self.multiplier),
             int(0 * self.multiplier),
+            int(500 * self.multiplier),
             int(100 * self.multiplier),
-            int(100 * self.multiplier),
-            c.BLUE,
+            c.WHITE,
             int(100 * self.multiplier),
             "top secret text",
             max_length=8
@@ -96,6 +96,7 @@ class SpyMaster(tools.GameState):
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
                 if key == "end turn":
+                    self.game_info[c.CLUE] = self.text_boxes["hint"]
                     self.done = True
 
     def update_word_cards(self):
