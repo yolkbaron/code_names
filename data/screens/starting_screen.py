@@ -35,7 +35,7 @@ class StartingScreen(tools.GameState):
     def set_buttons(self):
         start_button = button.Button(
             int(180 * self.multiplier),
-            int(820 * self.multiplier),
+            int(840 * self.multiplier),
             int(600 * self.multiplier),
             int(200 * self.multiplier),
             "START",
@@ -49,63 +49,63 @@ class StartingScreen(tools.GameState):
     def set_textboxes(self):
         spy1 = text_box.InputBox(
             int(220 * self.multiplier),
-            int(435 * self.multiplier),
+            int(455 * self.multiplier),
             int(650 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.BLUE,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         spy2 = text_box.InputBox(
             int(1050 * self.multiplier),
-            int(250 * self.multiplier),
+            int(270 * self.multiplier),
             int(600 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.RED,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         team1_operative1 = text_box.InputBox(
             int(220 * self.multiplier),
-            int(555 * self.multiplier),
+            int(575 * self.multiplier),
             int(650 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.BLUE,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         team2_operative1 = text_box.InputBox(
             int(1050 * self.multiplier),
-            int(370 * self.multiplier),
+            int(390 * self.multiplier),
             int(600 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.RED,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         team1_operative2 = text_box.InputBox(
             int(220 * self.multiplier),
-            int(675 * self.multiplier),
+            int(695 * self.multiplier),
             int(650 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.BLUE,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         team2_operative2 = text_box.InputBox(
             int(1050 * self.multiplier),
-            int(490 * self.multiplier),
+            int(510 * self.multiplier),
             int(600 * self.multiplier),
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             c.RED,
-            int(100 * self.multiplier),
+            int(80 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
         self.text_boxes["team1_spy"] = spy1
         self.text_boxes["team2_spy"] = spy2
