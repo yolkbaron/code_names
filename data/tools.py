@@ -185,7 +185,7 @@ def load_all_sounds(directory, extensions=()):
     return sounds
 
 
-def load_all_music(directory, extensions=()):
+def load_all_music(directory, extensions=(".mp3")):
     """
     Loads all music from given directory.
     :param directory: Directory with music
