@@ -25,12 +25,18 @@ class SpyMaster(tools.GameState):
 
         self.set_background()
         self.set_buttons()
-        self.set_textboxes()
+        self.set_text_boxes()
         self.set_cards()
 
     def set_background(self):
         self.background = setup.SPRITES["background3"].copy()
+        font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
+        if self.game_info[c.CURRENT_STEP] == 'blue':
+            current_team = font.render('Team Blue', True, c.BLUE)
+        if self.game_info[c.CURRENT_STEP] == 'red':
+            current_team = font.render('Team Red', True, c.RED)
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(current_team, (0, int(200*self.multiplier)))
 
     def set_cards(self):
         self.word_cards = self.game_info[c.WORD_CARDS]
@@ -49,7 +55,7 @@ class SpyMaster(tools.GameState):
         end_turn_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["end turn"] = end_turn_button
 
-    def set_textboxes(self):
+    def set_text_boxes(self):
         clue = text_box.InputBox(
             int(0 * self.multiplier),
             int(0 * self.multiplier),

@@ -34,9 +34,14 @@ class FieldOperative(tools.GameState):
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
         txt_surface = font.render(self.game_info[c.CLUE].upper(), True, c.WHITE)
         number_surface = font.render(self.game_info[c.NUMBER], True, c.WHITE)
+        if self.game_info[c.CURRENT_STEP] == 'blue':
+            current_team = font.render('Team Blue', True, c.BLUE)
+        if self.game_info[c.CURRENT_STEP] == 'red':
+            current_team = font.render('Team Red', True, c.RED)
         self.background.blit(txt_surface, (0, 0))
         self.background.blit(number_surface, (int(800 * self.multiplier), 0))
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(current_team, (0, int(200 * self.multiplier)))
 
     def set_cards(self):
         self.word_cards = self.game_info[c.WORD_CARDS]
@@ -86,8 +91,12 @@ class FieldOperative(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "end turn" and self.game_info[c.CLUE]:
+                if key == "end turn":
                     self.done = True
+                    if self.game_info[c.CURRENT_STEP] == 'blue':
+                        self.game_info[c.CURRENT_STEP] = 'red'
+                    elif self.game_info[c.CURRENT_STEP] == 'red':
+                        self.game_info[c.CURRENT_STEP] = 'blue'
 
     def update_word_cards(self):
         for i in range(20):

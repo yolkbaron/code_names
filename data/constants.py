@@ -55,6 +55,7 @@ CURRENT_TIME = 'current time'
 GAME_OVER = 'game over'
 WORD_CARDS = 'word cards'
 CLUE = 'clue'
+CURRENT_STEP = 'current step'
 
 # Word card
 # Statuses
