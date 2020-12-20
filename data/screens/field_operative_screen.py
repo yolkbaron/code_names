@@ -30,7 +30,7 @@ class FieldOperative(tools.GameState):
     def set_background(self):
         self.background = setup.SPRITES["background3"]
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
-        txt_surface = font.render(self.game_info["clue"].upper(), True, c.WHITE)
+        txt_surface = font.render(self.game_info[c.CLUE].upper(), True, c.WHITE)
         self.background.blit(txt_surface, (0, 0))
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 

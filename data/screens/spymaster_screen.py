@@ -61,7 +61,6 @@ class SpyMaster(tools.GameState):
             max_length=12,
             upper=True
         )
-
         self.text_boxes["clue"] = hint
 
     def update(self, surface, keys, mouse, current_time):
