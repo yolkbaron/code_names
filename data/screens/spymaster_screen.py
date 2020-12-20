@@ -31,29 +31,10 @@ class SpyMaster(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_cards(self):
-        all_words = setup.WORDS["words_list"]
-        words = []
-        order = random.sample(range(0, 187), 20)
-        for i in order:
-            words.append(all_words[i])
-        all = list(range(20))
-        color = list(range(20))
-        blue = random.sample(range(0, 20), 6)
-        for i in blue:
-            all.remove(i)
-            color.remove(i)
-            color.insert(i, "blue")
-        red = random.sample(all, 7)
-        for i in red:
-            all.remove(i)
-            color.remove(i)
-            color.insert(i, "red")
-        white = random.sample(all, 6)
-        for i in white:
-            all.remove(i)
-            color.remove(i)
-            color.insert(i, "light-yellow")
-        color[all[0]] = "purple"
+        words = setup.WORDS["words_list"]
+        random.shuffle(words)
+        types = ["blue"]*6 + ["red"]*7 + ["bystander"]*6 + ["assassin"]
+        random.shuffle(types)
 
         word_cards = []
 
@@ -64,14 +45,15 @@ class SpyMaster(tools.GameState):
                     int((400 + 160*i) * self.multiplier),
                     int(300 * self.multiplier),
                     int(150 * self.multiplier),
+                    types[5*i+j],
                     words[5*i+j],
                     int(50 * self.multiplier),
-                    "top secret text",
-                    color[5*i+j]
+                    "top secret text"
+
                 )
-                word.captain = True
-                word.set_captain(c.BLACK, setup.SPRITES[word.color])
-                self.buttons["word" + str(5*i+j)] = word
+                word_cards.append(word)
+
+        self.word_cards = word_cards
 
     def set_buttons(self):
         play_button = button.Button(
@@ -89,9 +71,8 @@ class SpyMaster(tools.GameState):
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
-        self.draw_buttons(surface)
-        self.draw_cards(surface)
         self.cursor_pos = pg.mouse.get_pos()
+        self.update_buttons()
 
         for key in self.buttons.keys():
             if self.buttons[key].check_crossing(self.cursor_pos):
@@ -99,17 +80,21 @@ class SpyMaster(tools.GameState):
             else:
                 self.buttons[key].active = False
 
-        self.buttons_processing()
+        self.update_buttons()
+        self.update_word_cards()
+
+        self.draw_buttons(surface)
+        self.draw_word_cards(surface)
 
     def draw_buttons(self, surface):
         for key in self.buttons.keys():
             self.buttons[key].draw(surface)
 
-    def draw_cards(self, surface):
-        for key in self.cards.keys():
-            self.cards[key].draw(surface)
+    def draw_word_cards(self, surface):
+        for i in range(20):
+            self.word_cards[i].draw_spy_screen(surface)
 
-    def buttons_processing(self):
+    def update_buttons(self):
         for key in self.buttons.keys():
             if self.buttons[key].check_crossing(self.cursor_pos):
                 self.buttons[key].active = True
@@ -117,5 +102,13 @@ class SpyMaster(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "next":
-                    self.done = True
+
+    def update_word_cards(self):
+        for i in range(20):
+            if self.word_cards[i].check_crossing(self.cursor_pos):
+                self.word_cards[i].active = True
+            else:
+                self.word_cards[i].active = False
+            if self.word_cards[i].pressed:
+                self.word_cards[i].pressed = False
+            self.word_cards[i].update()

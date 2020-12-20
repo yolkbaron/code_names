@@ -58,5 +58,15 @@ TEAM2 = 'second team'
 CURRENT_TIME = 'current time'
 GAME_OVER = 'game over'
 
+# Word card
+# Statuses
+REVEALED = 'revealed'
+HIDDEN = 'hidden'
+# Type
+RED = 'red'
+BLUE = 'blue'
+BYSTANDER = 'bystander'
+ASSASSIN = 'assassin'
+
 # Sound states
 # TODO
