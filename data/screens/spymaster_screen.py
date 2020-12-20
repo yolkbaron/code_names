@@ -53,12 +53,12 @@ class SpyMaster(tools.GameState):
         hint = text_box.InputBox(
             int(0 * self.multiplier),
             int(0 * self.multiplier),
-            int(500 * self.multiplier),
+            int(600 * self.multiplier),
             int(100 * self.multiplier),
             c.WHITE,
             int(100 * self.multiplier),
             "top secret text",
-            max_length=8
+            max_length=12
         )
 
         self.text_boxes["hint"] = hint
