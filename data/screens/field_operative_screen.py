@@ -19,7 +19,6 @@ class FieldOperative(tools.GameState):
         self.fonts = setup.FONTS
         self.turn = "red"
 
-
     def start(self, current_time, game_info):
         self.start_time = current_time
         self.game_info = game_info
@@ -107,6 +106,22 @@ class FieldOperative(tools.GameState):
             if self.word_cards[i].pressed and self.game_info[c.NUMBER] > -1:
                 self.word_cards[i].pressed = False
                 self.word_cards[i].reveal()
-                self.game_info[c.NUMBER] -= 1
+                if self.word_cards[i].type == c.BYSTANDER:
+                    self.game_info[c.NUMBER] = -1
+                elif self.word_cards[i].type == c.ASSASSIN:
+                    self.game_info[c.NUMBER] = -1
+                    self.game_info[c.GAME_OVER] == True
+                elif self.word_cards[i].type == c.RED_CARD:
+                    self.game_info[c.TEAM2].score += 1
+                    if self.game_info[c.CURRENT_STEP] == 'red':
+                        self.game_info[c.NUMBER] -= 1
+                    if self.game_info[c.CURRENT_STEP] == 'blue':
+                        self.game_info[c.NUMBER] = -1
+                elif self.word_cards[i].type == c.BLUE_CARD:
+                    self.game_info[c.TEAM2].score += 1
+                    if self.game_info[c.CURRENT_STEP] == 'blue':
+                        self.game_info[c.NUMBER] -= 1
+                    if self.game_info[c.CURRENT_STEP] == 'red':
+                        self.game_info[c.NUMBER] = -1
 
             self.word_cards[i].update()
