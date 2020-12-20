@@ -22,7 +22,9 @@ class MainMenu(tools.GameState):
             c.CURRENT_TIME: None,
             c.GAME_OVER: False,
             c.WORD_CARDS: None,
-            c.CLUE: None
+            c.CLUE: None,
+            c.NUMBER: None,
+            c.CURRENT_STEP: 'blue'
         }
         self.start(0.0, game_info)
         self.fonts = setup.FONTS

@@ -19,6 +19,8 @@ class FieldOperative(tools.GameState):
         self.name = c.FIELD_OPERATIVE
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
+        self.turn = "red"
+
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -33,8 +35,15 @@ class FieldOperative(tools.GameState):
         self.background = setup.SPRITES["background3"].copy()
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
         txt_surface = font.render(self.game_info[c.CLUE].upper(), True, c.WHITE)
+        number_surface = font.render(str(self.game_info[c.NUMBER]), True, c.WHITE)
+        if self.game_info[c.CURRENT_STEP] == 'blue':
+            current_team = font.render('Team Blue', True, c.BLUE)
+        if self.game_info[c.CURRENT_STEP] == 'red':
+            current_team = font.render('Team Red', True, c.RED)
         self.background.blit(txt_surface, (0, 0))
+        self.background.blit(number_surface, (int(800 * self.multiplier), 0))
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(current_team, (0, int(200 * self.multiplier)))
 
     def set_cards(self):
         self.word_cards = self.game_info[c.WORD_CARDS]
@@ -84,8 +93,12 @@ class FieldOperative(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "end turn" and self.game_info[c.CLUE]:
+                if key == "end turn":
                     self.done = True
+                    if self.game_info[c.CURRENT_STEP] == 'blue':
+                        self.game_info[c.CURRENT_STEP] = 'red'
+                    elif self.game_info[c.CURRENT_STEP] == 'red':
+                        self.game_info[c.CURRENT_STEP] = 'blue'
 
     def update_word_cards(self):
         for i in range(20):
@@ -93,8 +106,9 @@ class FieldOperative(tools.GameState):
                 self.word_cards[i].active = True
             else:
                 self.word_cards[i].active = False
-            if self.word_cards[i].pressed:
+            if self.word_cards[i].pressed and self.game_info[c.NUMBER] > -1:
                 self.word_cards[i].pressed = False
                 self.word_cards[i].reveal()
+                self.game_info[c.NUMBER] -= 1
 
             self.word_cards[i].update()

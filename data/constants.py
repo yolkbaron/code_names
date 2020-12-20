@@ -55,6 +55,7 @@ CURRENT_TIME = 'current time'
 GAME_OVER = 'game over'
 WORD_CARDS = 'word cards'
 CLUE = 'clue'
+CURRENT_STEP = 'current step'
 
 # Word card
 # Statuses
@@ -65,6 +66,10 @@ RED_CARD = 'red'
 BLUE_CARD = 'blue'
 BYSTANDER = 'bystander'
 ASSASSIN = 'assassin'
+
+# Text boxes types
+WORD = 'word'
+NUMBER = 'number'
 
 # Sound states
 # TODO

@@ -26,12 +26,18 @@ class SpyMaster(tools.GameState):
 
         self.set_background()
         self.set_buttons()
-        self.set_textboxes()
+        self.set_text_boxes()
         self.set_cards()
 
     def set_background(self):
         self.background = setup.SPRITES["background3"].copy()
+        font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
+        if self.game_info[c.CURRENT_STEP] == 'blue':
+            current_team = font.render('Team Blue', True, c.BLUE)
+        if self.game_info[c.CURRENT_STEP] == 'red':
+            current_team = font.render('Team Red', True, c.RED)
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
+        self.background.blit(current_team, (0, int(200*self.multiplier)))
 
     def set_cards(self):
         self.word_cards = self.game_info[c.WORD_CARDS]
@@ -50,19 +56,33 @@ class SpyMaster(tools.GameState):
         end_turn_button.set_active(c.WHITE, setup.SPRITES["button_active"])
         self.buttons["end turn"] = end_turn_button
 
-    def set_textboxes(self):
-        hint = text_box.InputBox(
+    def set_text_boxes(self):
+        clue = text_box.InputBox(
             int(0 * self.multiplier),
             int(0 * self.multiplier),
-            int(600 * self.multiplier),
+            int(750 * self.multiplier),
             int(100 * self.multiplier),
             c.WHITE,
             int(100 * self.multiplier),
             "top secret text",
             max_length=12,
-            upper=True
+            upper=True,
+            type=c.WORD
         )
-        self.text_boxes["clue"] = hint
+        number = text_box.InputBox(
+            int(800 * self.multiplier),
+            int(0 * self.multiplier),
+            int(50 * self.multiplier),
+            int(100 * self.multiplier),
+            c.WHITE,
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=1,
+            upper=True,
+            type=c.NUMBER
+        )
+        self.text_boxes["clue"] = clue
+        self.text_boxes['number'] = number
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
@@ -96,7 +116,7 @@ class SpyMaster(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
-                if key == "end turn" and self.game_info[c.CLUE]:
+                if key == "end turn" and self.game_info[c.CLUE] and self.game_info[c.NUMBER]:
                     self.done = True
 
     def update_word_cards(self):
@@ -114,3 +134,5 @@ class SpyMaster(tools.GameState):
             self.text_boxes[key].update()
             if key == 'clue':
                 self.game_info[c.CLUE] = self.text_boxes[key].text
+            if key == 'number' and len(self.text_boxes[key].text) > 0:
+                self.game_info[c.NUMBER] = int(self.text_boxes[key].text)
