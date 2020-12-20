@@ -4,6 +4,7 @@ from ..game_components import word_card
 from ..game_components import text_box
 from .. import setup, tools
 from .. import constants as c
+from .. import game_sound
 import random
 
 

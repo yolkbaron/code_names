@@ -5,6 +5,7 @@ from ..game_components import text_box
 from ..game_components import word_card
 from .. import setup, tools
 from .. import constants as c
+from .. import game_sound
 
 
 class StartingScreen(tools.GameState):

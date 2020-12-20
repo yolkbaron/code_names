@@ -7,6 +7,10 @@ class Music(object):
 
     def __init__(self):
         self.music_dict = setup.MUSIC
+        self.game_info = overhead_info.game_info
+
+    def update(self, game_info):
+        self.game_info = game_info
 
     def play_music(self):
         pg.mixer.music.load(self.music_dict['main_theme'])
