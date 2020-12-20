@@ -29,6 +29,9 @@ class FieldOperative(tools.GameState):
 
     def set_background(self):
         self.background = setup.SPRITES["background3"]
+        font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
+        txt_surface = font.render(self.game_info["clue"].upper(), True, c.WHITE)
+        self.background.blit(txt_surface, (0, 0))
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_cards(self):
@@ -68,7 +71,8 @@ class FieldOperative(tools.GameState):
             self.word_cards[i].draw_operative_screen(surface)
 
     def draw_text_boxes(self, surface):
-        self.game_info[c.CLUE].draw(surface)
+        for key in self.text_boxes.keys():
+            self.text_boxes[key].draw(surface)
 
     def update_buttons(self):
         for key in self.buttons.keys():
