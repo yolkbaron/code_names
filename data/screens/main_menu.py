@@ -3,6 +3,7 @@ from ..game_components import button
 from .. import setup, tools
 from .. import constants as c
 from ..game_components import player_module
+from .. import game_sound
 
 
 class MainMenu(tools.GameState):

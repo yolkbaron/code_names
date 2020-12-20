@@ -29,7 +29,7 @@ class SpyMaster(tools.GameState):
         self.set_cards()
 
     def set_background(self):
-        self.background = setup.SPRITES["background3"]
+        self.background = setup.SPRITES["background3"].copy()
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_cards(self):
@@ -97,7 +97,6 @@ class SpyMaster(tools.GameState):
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
                 if key == "end turn" and self.game_info[c.CLUE]:
-                    print(self.game_info[c.CLUE])
                     self.done = True
 
     def update_word_cards(self):

@@ -28,7 +28,7 @@ class FieldOperative(tools.GameState):
         self.set_cards()
 
     def set_background(self):
-        self.background = setup.SPRITES["background3"]
+        self.background = setup.SPRITES["background3"].copy()
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
         txt_surface = font.render(self.game_info["clue"].upper(), True, c.WHITE)
         self.background.blit(txt_surface, (0, 0))
@@ -83,7 +83,6 @@ class FieldOperative(tools.GameState):
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
                 if key == "end turn" and self.game_info[c.CLUE]:
-                    print(self.game_info[c.CLUE])
                     self.done = True
 
     def update_word_cards(self):
