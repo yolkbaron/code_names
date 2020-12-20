@@ -87,5 +87,6 @@ class FieldOperative(tools.GameState):
                 self.word_cards[i].active = False
             if self.word_cards[i].pressed:
                 self.word_cards[i].pressed = False
-                self.word_cards[i].status = c.REVEALED
+                self.word_cards[i].reveal()
+
             self.word_cards[i].update()

@@ -20,6 +20,17 @@ class WordCard(button.Button):
         pg.draw.rect(operative_active, c.FOREST_GREEN, operative_active.get_rect(), int(5 * c.MULTIPLIER))
         self.operative_button.set_active(c.BLACK, operative_active)
 
+    def reveal(self):
+        self.status = c.REVEALED
+        self.spy_button.text = None
+        self.operative_button.text = None
+        self.spy_button.set_inactive(c.BLACK, setup.SPRITES[self.type])
+        self.operative_button.set_inactive(c.BLACK, setup.SPRITES[self.type])
+        active = self.spy_button.inactive_image.copy()
+        pg.draw.rect(active, c.FOREST_GREEN, active.get_rect(), int(5*c.MULTIPLIER))
+        self.spy_button.set_active(c.BLACK, active)
+        self.operative_button.set_active(c.BLACK, active)
+
     def draw_spy_screen(self, surface):
         self.spy_button.draw(surface)
 
