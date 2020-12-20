@@ -42,10 +42,6 @@ MULTIPLIER = SCREEN_HEIGHT/1080
 COVERED = 'covered'
 UNCOVERED = 'uncovered'
 
-# Move states
-TEAM1 = '1 team'
-TEAM2 = '2 team'
-
 # Screen states
 MAIN_MENU = 'main menu'
 FIELD_OPERATIVE = 'field operative'
@@ -65,8 +61,8 @@ CLUE = 'clue'
 REVEALED = 'revealed'
 HIDDEN = 'hidden'
 # Type
-RED = 'red'
-BLUE = 'blue'
+RED_CARD = 'red'
+BLUE_CARD = 'blue'
 BYSTANDER = 'bystander'
 ASSASSIN = 'assassin'
 

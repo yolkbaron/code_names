@@ -187,7 +187,7 @@ class StartingScreen(tools.GameState):
 def generate_word_cards():
     words = setup.WORDS["words_list"]
     random.shuffle(words)
-    types = ["blue"] * 6 + ["red"] * 7 + ["bystander"] * 6 + ["assassin"]
+    types = [c.BLUE_CARD] * 6 + [c.RED_CARD] * 7 + [c.BYSTANDER] * 6 + [c.ASSASSIN]
     random.shuffle(types)
 
     word_cards = []
