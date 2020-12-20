@@ -25,7 +25,7 @@ class InputBox(button.Button):
             pg.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height), 2)
 
     def key_pressed(self, event):
-        if self.active:
+        if self.active and (pg.K_a <= event.key <= pg.K_z or event.key == pg.K_RETURN or event.key == pg.K_BACKSPACE):
             if event.key == pg.K_RETURN:
                 self.text = ''
             elif event.key == pg.K_BACKSPACE:

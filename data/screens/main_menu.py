@@ -20,7 +20,7 @@ class MainMenu(tools.GameState):
             c.TEAM2: team2,
             c.CURRENT_TIME: None,
             c.GAME_OVER: False,
-            c.WORD_CARDS: None
+            c.WORD_CARDS: None,
             c.CLUE: None
         }
         self.start(0.0, game_info)
