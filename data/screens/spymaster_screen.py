@@ -133,5 +133,5 @@ class SpyMaster(tools.GameState):
             self.text_boxes[key].update()
             if key == 'clue':
                 self.game_info[c.CLUE] = self.text_boxes[key].text
-            if key == 'number':
-                self.game_info[c.NUMBER] = self.text_boxes[key].text
+            if key == 'number' and len(self.text_boxes[key].text) > 0:
+                self.game_info[c.NUMBER] = int(self.text_boxes[key].text)

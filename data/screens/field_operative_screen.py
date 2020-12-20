@@ -33,7 +33,7 @@ class FieldOperative(tools.GameState):
         self.background = setup.SPRITES["background3"].copy()
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
         txt_surface = font.render(self.game_info[c.CLUE].upper(), True, c.WHITE)
-        number_surface = font.render(self.game_info[c.NUMBER], True, c.WHITE)
+        number_surface = font.render(str(self.game_info[c.NUMBER]), True, c.WHITE)
         if self.game_info[c.CURRENT_STEP] == 'blue':
             current_team = font.render('Team Blue', True, c.BLUE)
         if self.game_info[c.CURRENT_STEP] == 'red':
@@ -104,16 +104,9 @@ class FieldOperative(tools.GameState):
                 self.word_cards[i].active = True
             else:
                 self.word_cards[i].active = False
-            if self.word_cards[i].pressed:
+            if self.word_cards[i].pressed and self.game_info[c.NUMBER] > -1:
                 self.word_cards[i].pressed = False
                 self.word_cards[i].reveal()
-                if (self.turn == "red") and (self.word_cards[i].type != c.RED_CARD) and (self.word_cards[i].type != c.ASSASSIN):
-                    self.turn = "blue"
-                    self.done = True
-                if (self.turn == "blue") and (self.word_cards[i].type != c.BLUE_CARD) and (self.word_cards[i].type != c.ASSASSIN):
-                    self.turn = "red"
-                    self.done = True
-
-
+                self.game_info[c.NUMBER] -= 1
 
             self.word_cards[i].update()
