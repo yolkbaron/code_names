@@ -66,5 +66,9 @@ BLUE_CARD = 'blue'
 BYSTANDER = 'bystander'
 ASSASSIN = 'assassin'
 
+# Text boxes types
+WORD = 'word'
+NUMBER = 'number'
+
 # Sound states
 # TODO

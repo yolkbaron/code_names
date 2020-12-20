@@ -33,7 +33,9 @@ class FieldOperative(tools.GameState):
         self.background = setup.SPRITES["background3"].copy()
         font = pg.font.Font(self.fonts["top secret text"], int(100 * self.multiplier))
         txt_surface = font.render(self.game_info[c.CLUE].upper(), True, c.WHITE)
+        number_surface = font.render(self.game_info[c.NUMBER], True, c.WHITE)
         self.background.blit(txt_surface, (0, 0))
+        self.background.blit(number_surface, (int(800 * self.multiplier), 0))
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_cards(self):
