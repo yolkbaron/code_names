@@ -21,6 +21,7 @@ class MainMenu(tools.GameState):
             c.CURRENT_TIME: None,
             c.GAME_OVER: False,
             c.WORD_CARDS: None
+            c.CLUE: None
         }
         self.start(0.0, game_info)
         self.fonts = setup.FONTS

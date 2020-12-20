@@ -111,15 +111,7 @@ class GameState(object):
 
     def key_pressed(self, event):
         for key in self.text_boxes.keys():
-            if self.text_boxes[key].active:
-                if event.key == pg.K_RETURN:
-                    self.text_boxes[key].text = ''
-                elif event.key == pg.K_BACKSPACE:
-                    self.text_boxes[key].text = self.text_boxes[key].text[:-1]
-                elif self.text_boxes[key].max_length == -1 or self.text_boxes[key].max_length > len(self.text_boxes[key].text):
-                    self.text_boxes[key].text += event.unicode
-                self.text_boxes[key].txt_surface = self.text_boxes[key].font.render(self.text_boxes[key].text, True,
-                                                                                    self.text_boxes[key].text_color)
+            self.text_boxes[key].key_pressed(event)
 
     def update(self, surface, keys, mouse, current_time):
         """

@@ -50,13 +50,6 @@ class FieldOperative(tools.GameState):
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
         self.cursor_pos = pg.mouse.get_pos()
-        self.update_buttons()
-
-        for key in self.buttons.keys():
-            if self.buttons[key].check_crossing(self.cursor_pos):
-                self.buttons[key].active = True
-            else:
-                self.buttons[key].active = False
 
         self.update_buttons()
         self.update_word_cards()
@@ -89,4 +82,5 @@ class FieldOperative(tools.GameState):
                 self.word_cards[i].active = False
             if self.word_cards[i].pressed:
                 self.word_cards[i].pressed = False
+                self.word_cards[i].status = c.REVEALED
             self.word_cards[i].update()

@@ -13,11 +13,11 @@ class WordCard(button.Button):
         self.type = type
         self.spy_button.set_inactive(c.BLACK, setup.SPRITES[self.type])
         spy_active = self.spy_button.inactive_image.copy()
-        pg.draw.rect(spy_active, c.GREEN, spy_active.get_rect(), int(5 * c.MULTIPLIER))
+        pg.draw.rect(spy_active, c.FOREST_GREEN, spy_active.get_rect(), int(5 * c.MULTIPLIER))
         self.spy_button.set_active(c.BLACK, spy_active)
         self.operative_button.set_inactive(c.BLACK, setup.SPRITES["hidden"])
         operative_active = self.operative_button.inactive_image.copy()
-        pg.draw.rect(spy_active, c.GREEN, operative_active.get_rect(), int(5 * c.MULTIPLIER))
+        pg.draw.rect(operative_active, c.FOREST_GREEN, operative_active.get_rect(), int(5 * c.MULTIPLIER))
         self.operative_button.set_active(c.BLACK, operative_active)
 
     def draw_spy_screen(self, surface):
@@ -29,3 +29,11 @@ class WordCard(button.Button):
     def update(self):
         self.spy_button.active = self.active
         self.operative_button.active = self.active
+        self.spy_button.pressed = self.pressed
+        self.operative_button.pressed = self.pressed
+        self.pressed = False
+        if self.spy_button.pressed:
+            self.spy_button.pressed = False
+        if self.operative_button.pressed:
+            self.operative_button.pressed = False
+            self.status = c.REVEALED
