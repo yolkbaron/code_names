@@ -1,8 +1,10 @@
 import pygame as pg
+import random
 from ..game_components import button
+from ..game_components import text_box
+from ..game_components import word_card
 from .. import setup, tools
 from .. import constants as c
-from ..game_components import text_box
 
 
 class StartingScreen(tools.GameState):
@@ -46,57 +48,64 @@ class StartingScreen(tools.GameState):
 
     def set_textboxes(self):
         spy1 = text_box.InputBox(
-            int(220*self.multiplier),
-            int(435*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
-            c.BLUE, int(100*self.multiplier),
-            "top secret text"
+            int(220 * self.multiplier),
+            int(435 * self.multiplier),
+            int(650 * self.multiplier),
+            int(100 * self.multiplier),
+            c.BLUE,
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         spy2 = text_box.InputBox(
-            int(1100*self.multiplier),
-            int(250*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
+            int(1050 * self.multiplier),
+            int(250 * self.multiplier),
+            int(600 * self.multiplier),
+            int(100 * self.multiplier),
             c.RED,
-            int(100*self.multiplier),
-            "top secret text"
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         team1_operative1 = text_box.InputBox(
-            int(220*self.multiplier),
-            int(555*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
+            int(220 * self.multiplier),
+            int(555 * self.multiplier),
+            int(650 * self.multiplier),
+            int(100 * self.multiplier),
             c.BLUE,
-            int(100*self.multiplier),
-            "top secret text"
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         team2_operative1 = text_box.InputBox(
-            int(1100*self.multiplier),
-            int(370*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
+            int(1050 * self.multiplier),
+            int(370 * self.multiplier),
+            int(600 * self.multiplier),
+            int(100 * self.multiplier),
             c.RED,
-            int(100*self.multiplier),
-            "top secret text"
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         team1_operative2 = text_box.InputBox(
-            int(220*self.multiplier),
-            int(675*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
+            int(220 * self.multiplier),
+            int(675 * self.multiplier),
+            int(650 * self.multiplier),
+            int(100 * self.multiplier),
             c.BLUE,
-            int(100*self.multiplier),
-            "top secret text"
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         team2_operative2 = text_box.InputBox(
-            int(1100*self.multiplier),
-            int(490*self.multiplier),
-            int(500*self.multiplier),
-            int(100*self.multiplier),
+            int(1050 * self.multiplier),
+            int(490 * self.multiplier),
+            int(600 * self.multiplier),
+            int(100 * self.multiplier),
             c.RED,
-            int(100*self.multiplier),
-            "top secret text"
+            int(100 * self.multiplier),
+            "top secret text",
+            max_length=8
         )
         self.text_boxes["team1_spy"] = spy1
         self.text_boxes["team2_spy"] = spy2
@@ -123,13 +132,15 @@ class StartingScreen(tools.GameState):
 
     def update_buttons(self):
         for key in self.buttons.keys():
-            if self.buttons[key].check_crossing(self.cursor_pos) and self.game_info[c.TEAM1].is_complete() and self.game_info[c.TEAM2].is_complete():
+            if self.buttons[key].check_crossing(self.cursor_pos) and self.game_info[c.TEAM1].is_complete() and \
+                    self.game_info[c.TEAM2].is_complete():
                 self.buttons[key].active = True
             else:
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
                 if key == "start" and self.game_info[c.TEAM1].is_complete() and self.game_info[c.TEAM2].is_complete():
+                    self.game_info[c.WORD_CARDS] = generate_word_cards()
                     self.done = True
 
     def draw_buttons(self, surface):
@@ -171,3 +182,28 @@ class StartingScreen(tools.GameState):
         else:
             self.game_info[c.TEAM2].set_operative(None, 0)
             self.game_info[c.TEAM2].set_operative(None, 1)
+
+
+def generate_word_cards():
+    words = setup.WORDS["words_list"]
+    random.shuffle(words)
+    types = ["blue"] * 6 + ["red"] * 7 + ["bystander"] * 6 + ["assassin"]
+    random.shuffle(types)
+
+    word_cards = []
+
+    for i in range(4):
+        for j in range(5):
+            word = word_card.WordCard(
+                int((190 + 310 * j) * c.MULTIPLIER),
+                int((400 + 160 * i) * c.MULTIPLIER),
+                int(300 * c.MULTIPLIER),
+                int(150 * c.MULTIPLIER),
+                types[5 * i + j],
+                words[5 * i + j].upper(),
+                int(50 * c.MULTIPLIER),
+                "top secret text"
+
+            )
+            word_cards.append(word)
+    return word_cards

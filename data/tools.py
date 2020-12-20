@@ -116,7 +116,7 @@ class GameState(object):
                     self.text_boxes[key].text = ''
                 elif event.key == pg.K_BACKSPACE:
                     self.text_boxes[key].text = self.text_boxes[key].text[:-1]
-                else:
+                elif self.text_boxes[key].max_length == -1 or self.text_boxes[key].max_length > len(self.text_boxes[key].text):
                     self.text_boxes[key].text += event.unicode
                 self.text_boxes[key].txt_surface = self.text_boxes[key].font.render(self.text_boxes[key].text, True,
                                                                                     self.text_boxes[key].text_color)

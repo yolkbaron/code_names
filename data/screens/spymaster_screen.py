@@ -31,43 +31,21 @@ class SpyMaster(tools.GameState):
         self.background = pg.transform.scale(self.background, c.SCREEN_SIZE)
 
     def set_cards(self):
-        words = setup.WORDS["words_list"]
-        random.shuffle(words)
-        types = ["blue"]*6 + ["red"]*7 + ["bystander"]*6 + ["assassin"]
-        random.shuffle(types)
-
-        word_cards = []
-
-        for i in range(4):
-            for j in range(5):
-                word = word_card.WordCard(
-                    int((190 + 310*j) * self.multiplier),
-                    int((400 + 160*i) * self.multiplier),
-                    int(300 * self.multiplier),
-                    int(150 * self.multiplier),
-                    types[5*i+j],
-                    words[5*i+j],
-                    int(50 * self.multiplier),
-                    "top secret text"
-
-                )
-                word_cards.append(word)
-
-        self.word_cards = word_cards
+        self.word_cards = self.game_info[c.WORD_CARDS]
 
     def set_buttons(self):
-        play_button = button.Button(
-             int(450 * self.multiplier),
-             int(60 * self.multiplier),
-             int(400 * self.multiplier),
-              int(200 * self.multiplier),
-              "Next",
-              int(150 * self.multiplier),
-              "Bullpen3D"
+        end_turn_button = button.Button(
+            int(1670 * self.multiplier),
+            int(20 * self.multiplier),
+            int(220 * self.multiplier),
+            int(50 * self.multiplier),
+            "End Turn",
+            int(50 * self.multiplier),
+            "Marlboro"
         )
-        play_button.set_inactive(c.WHITE)
-        play_button.set_active(c.WHITE, setup.SPRITES["button_active"])
-        self.buttons["next"] = play_button
+        end_turn_button.set_inactive(c.WHITE)
+        end_turn_button.set_active(c.WHITE, setup.SPRITES["button_active"])
+        self.buttons["end turn"] = end_turn_button
 
     def update(self, surface, keys, mouse, current_time):
         surface.blit(self.background, (0, 0))
@@ -102,6 +80,8 @@ class SpyMaster(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
+                if key == "end turn":
+                    self.done = True
 
     def update_word_cards(self):
         for i in range(20):

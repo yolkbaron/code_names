@@ -19,7 +19,8 @@ class MainMenu(tools.GameState):
             c.TEAM1: team1,
             c.TEAM2: team2,
             c.CURRENT_TIME: None,
-            c.GAME_OVER: False
+            c.GAME_OVER: False,
+            c.WORD_CARDS: None
         }
         self.start(0.0, game_info)
         self.fonts = setup.FONTS

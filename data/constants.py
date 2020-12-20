@@ -57,6 +57,7 @@ TEAM1 = 'first team'
 TEAM2 = 'second team'
 CURRENT_TIME = 'current time'
 GAME_OVER = 'game over'
+WORD_CARDS = 'word cards'
 
 # Word card
 # Statuses
