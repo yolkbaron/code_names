@@ -17,6 +17,8 @@ class FieldOperative(tools.GameState):
         self.name = c.FIELD_OPERATIVE
         self.cursor_pos = pg.mouse.get_pos()
         self.fonts = setup.FONTS
+        self.turn = "red"
+
 
     def start(self, current_time, game_info):
         self.start_time = current_time
@@ -94,5 +96,13 @@ class FieldOperative(tools.GameState):
             if self.word_cards[i].pressed:
                 self.word_cards[i].pressed = False
                 self.word_cards[i].reveal()
+                if (self.turn == "red") and (self.word_cards[i].type != c.RED_CARD) and (self.word_cards[i].type != c.ASSASSIN):
+                    self.turn = "blue"
+                    self.done = True
+                if (self.turn == "blue") and (self.word_cards[i].type != c.BLUE_CARD) and (self.word_cards[i].type != c.ASSASSIN):
+                    self.turn = "red"
+                    self.done = True
+
+
 
             self.word_cards[i].update()
