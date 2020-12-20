@@ -82,6 +82,9 @@ class FieldOperative(tools.GameState):
                 self.buttons[key].active = False
             if self.buttons[key].pressed:
                 self.buttons[key].pressed = False
+                if key == "end turn" and self.game_info[c.CLUE]:
+                    print(self.game_info[c.CLUE])
+                    self.done = True
 
     def update_word_cards(self):
         for i in range(20):
