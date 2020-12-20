@@ -1,6 +1,7 @@
 import os
 import pygame as pg
 from . import constants
+from . import game_sound
 
 
 class Game(object):
@@ -19,6 +20,8 @@ class Game(object):
         self.screen_name = None
         self.keys = pg.key.get_pressed()  # List of all keys pressed
         self.mouse_pressed = pg.mouse.get_pressed(3)
+        self.music_manager = game_sound.Music
+        self.music_manager.play_music()
 
     def switch_state(self):
         """
